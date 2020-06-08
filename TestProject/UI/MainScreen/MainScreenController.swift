@@ -50,7 +50,7 @@ public final class MainScreenController: BaseController {
     
     private lazy var descreiptionLabel: UILabel = {
         let label = UILabel()
-        label.font = UIFont(name: "HelveticaNeue-Regula", size: 12)
+        label.font = UIFont(name: "HelveticaNeue-Regular", size: 12)
         label.textAlignment = .center
         label.numberOfLines = 0
         label.text = Texts.MainScene.descriptionLabel
@@ -59,8 +59,8 @@ public final class MainScreenController: BaseController {
         return label
     }()
     
-    private lazy var countryCodeButton: CountryCodeButton = {
-        let view = CountryCodeButton()
+    private lazy var phoneNumberView: PhoneNumberView = {
+        let view = PhoneNumberView()
         view.countryCodeButton.addTarget(self,
                                          action: #selector(presentCountryCodeScene), for: .touchUpInside)
         
@@ -134,51 +134,51 @@ extension MainScreenController {
         titleLabel,
         greetingsLabel,
         descreiptionLabel,
-        countryCodeButton,
+        phoneNumberView,
         confirmButton,
-        signInStackView
+        signInStackView,
         ].forEach { view.addSubview($0) }
     }
 
     override func constraintSubviews() {
         super.constraintSubviews()
         imageView.snp.makeConstraints { make in
-            make.left.right.equalToSuperview().inset(Constants.Offsets.p15.rawValue)
-            make.top.equalToSuperview().inset(Constants.Offsets.p30.rawValue)
+            make.left.right.equalToSuperview().inset(Constants.cgFloat.p15.rawValue)
+            make.top.equalToSuperview().inset(Constants.cgFloat.p30.rawValue)
             make.height.equalTo(imageView.snp.width).multipliedBy(0.55)
         }
         
         titleLabel.snp.makeConstraints { make in
-            make.left.right.equalToSuperview().inset(Constants.Offsets.p15.rawValue)
-            make.top.equalTo(imageView.snp.bottom).offset(Constants.Offsets.p25.rawValue)
+            make.left.right.equalToSuperview().inset(Constants.cgFloat.p15.rawValue)
+            make.top.equalTo(imageView.snp.bottom).offset(Constants.cgFloat.p25.rawValue)
         }
         
         greetingsLabel.snp.makeConstraints { make in
-            make.left.right.equalToSuperview().inset(Constants.Offsets.p15.rawValue)
-            make.top.equalTo(titleLabel.snp.bottom).offset(Constants.Offsets.p30.rawValue)
+            make.left.right.equalToSuperview().inset(Constants.cgFloat.p15.rawValue)
+            make.top.equalTo(titleLabel.snp.bottom).offset(Constants.cgFloat.p30.rawValue)
         }
         
         descreiptionLabel.snp.makeConstraints { make in
-            make.left.right.equalToSuperview().inset(Constants.Offsets.p15.rawValue)
-            make.top.equalTo(greetingsLabel.snp.bottom).offset(Constants.Offsets.p15.rawValue)
+            make.left.right.equalToSuperview().inset(Constants.cgFloat.p15.rawValue)
+            make.top.equalTo(greetingsLabel.snp.bottom).offset(Constants.cgFloat.p15.rawValue)
         }
         
-        countryCodeButton.snp.makeConstraints { make in
-            make.left.equalToSuperview().inset(Constants.Offsets.p15.rawValue)
-            make.top.equalTo(descreiptionLabel.snp.bottom).offset(Constants.Offsets.p50.rawValue)
-            make.height.equalTo(Constants.Size.p40.rawValue)
-            make.width.equalTo(Constants.Size.p60.rawValue)
+        phoneNumberView.snp.makeConstraints { make in
+            make.left.right.equalToSuperview().inset(Constants.cgFloat.p15.rawValue)
+            make.top.equalTo(descreiptionLabel.snp.bottom).offset(Constants.cgFloat.p50.rawValue)
+            make.height.equalTo(Constants.cgFloat.p40.rawValue)
+            
         }
         
         confirmButton.snp.makeConstraints { make in
-            make.left.right.equalToSuperview().inset(Constants.Offsets.p15.rawValue)
-            make.bottom.equalTo(signInStackView.snp.top).offset(-Constants.Offsets.p25.rawValue)
-            make.height.equalTo(Constants.Size.p50.rawValue)
+            make.left.right.equalToSuperview().inset(Constants.cgFloat.p15.rawValue)
+            make.bottom.equalTo(signInStackView.snp.top).offset(-Constants.cgFloat.p25.rawValue)
+            make.height.equalTo(Constants.cgFloat.p50.rawValue)
         }
                 
         signInStackView.snp.makeConstraints { make in
             make.centerX.equalToSuperview()
-            make.bottom.equalToSuperview().inset(Constants.Offsets.p40.rawValue)
+            make.bottom.equalTo(view.safeAreaLayoutGuide)
             make.height.equalTo(20)
         }
     }

@@ -34,6 +34,9 @@ public final class CountryCodeController: BaseController {
         
         return table
     }()
+    
+    private lazy var letterCollectionView = LettersCollectionView()
+    
 }
 
 extension CountryCodeController {
@@ -49,6 +52,7 @@ extension CountryCodeController {
             titleLabel,
             searchField,
             countryTableView,
+            letterCollectionView,
         ].forEach { view.addSubview($0) }
     }
 
@@ -56,20 +60,30 @@ extension CountryCodeController {
         super.constraintSubviews()
         titleLabel.snp.makeConstraints { make in
             make.centerX.equalToSuperview()
-            make.top.equalToSuperview().inset(Constants.Offsets.p30.rawValue)
+            make.top.equalToSuperview().inset(Constants.cgFloat.p30.rawValue)
         }
         
         searchField.snp.makeConstraints { make in
-            make.left.right.equalToSuperview().inset(Constants.Offsets.p15.rawValue)
-            make.top.equalTo(titleLabel.snp.bottom).offset(Constants.Offsets.p30.rawValue)
-            make.height.equalTo(Constants.Size.p50.rawValue)
+            make.left.right.equalToSuperview().inset(Constants.cgFloat.p15.rawValue)
+            make.top.equalTo(titleLabel.snp.bottom).offset(Constants.cgFloat.p30.rawValue)
+            make.height.equalTo(Constants.cgFloat.p50.rawValue)
         }
         
+        
         countryTableView.snp.makeConstraints { make in
-            make.left.equalToSuperview().inset(Constants.Offsets.p15.rawValue)
-            make.right.equalToSuperview().inset(Constants.Offsets.p30.rawValue)
-            make.top.equalTo(searchField.snp.bottom).offset(Constants.Offsets.p10.rawValue)
-            make.bottom.equalToSuperview()
+            make.left.equalToSuperview().inset(Constants.cgFloat.p15.rawValue)
+            make.right.equalTo(letterCollectionView.snp.left).offset(-Constants.cgFloat.p10.rawValue)
+            make.top.equalTo(searchField.snp.bottom).offset(Constants.cgFloat.p10.rawValue)
+            make.bottom.equalTo(view.safeAreaLayoutGuide)
+        }
+        
+        letterCollectionView.snp.makeConstraints { make in
+            make.right.equalToSuperview().inset(Constants.cgFloat.p10.rawValue)
+            make.left.equalTo(countryTableView.snp.right).offset(Constants.cgFloat.p10.rawValue)
+            make.bottom.equalTo(view.safeAreaLayoutGuide)
+            make.width.equalTo(Constants.cgFloat.p15.rawValue)
+            make.height.equalTo(Constants.cgFloat.p300.rawValue)
+
         }
     }
 }
@@ -100,12 +114,12 @@ extension CountryCodeController: UITableViewDataSource {
 // MARK: - UITableViewDelegate
 extension CountryCodeController: UITableViewDelegate {
     public func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return Constants.Size.p40.rawValue
+        return Constants.cgFloat.p40.rawValue
         
     }
     
     public func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return Constants.Size.p50.rawValue
+        return Constants.cgFloat.p50.rawValue
     }
 }
 

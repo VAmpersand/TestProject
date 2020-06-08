@@ -40,7 +40,7 @@ extension FirstScreenController {
         super.constraintSubviews()
         presentMainSceenButton.snp.makeConstraints { make in
             make.center.equalToSuperview()
-            make.height.equalTo(Constants.Size.p50.rawValue)
+            make.height.equalTo(Constants.cgFloat.p50.rawValue)
             make.width.equalToSuperview().multipliedBy(0.5)
         }
     }

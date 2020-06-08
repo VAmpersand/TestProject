@@ -10,6 +10,8 @@ public class CountryTableHeader: UITableViewCell {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+    
+    public static let cellID = String(describing: CountryTableHeader.self)
 
     public lazy var titleLabel: UILabel = {
         let label = UILabel()
@@ -44,14 +46,14 @@ extension CountryTableHeader {
     
     func constraintSubviews() {        
         titleLabel.snp.makeConstraints { make in
-            make.left.equalToSuperview().inset(Constants.Offsets.p5.rawValue)
+            make.left.equalToSuperview().inset(Constants.cgFloat.p5.rawValue)
             make.centerY.equalToSuperview()
         }
         
         separatorView.snp.makeConstraints { make in
-            make.left.equalToSuperview().inset(Constants.Offsets.p5.rawValue)
+            make.left.equalToSuperview().inset(Constants.cgFloat.p5.rawValue)
             make.right.equalToSuperview()
-            make.height.equalTo(Constants.Size.p1.rawValue)
+            make.height.equalTo(Constants.cgFloat.p0_5.rawValue)
         }
     }
 }

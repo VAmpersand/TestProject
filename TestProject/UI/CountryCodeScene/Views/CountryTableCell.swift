@@ -62,25 +62,25 @@ extension CountryTableCell {
     
     func constraintSubviews() {
         flagView.snp.makeConstraints { make in
-            make.left.equalToSuperview().inset(Constants.Offsets.p5.rawValue)
-            make.top.bottom.equalToSuperview().inset(Constants.Offsets.p10.rawValue)
+            make.left.equalToSuperview().inset(Constants.cgFloat.p5.rawValue)
+            make.top.bottom.equalToSuperview().inset(Constants.cgFloat.p10.rawValue)
             make.width.equalTo(flagView.snp.height)
         }
         
         countryLabel.snp.makeConstraints { make in
-            make.left.equalTo(flagView.snp.right).offset(Constants.Offsets.p10.rawValue)
+            make.left.equalTo(flagView.snp.right).offset(Constants.cgFloat.p10.rawValue)
             make.centerY.equalToSuperview()
         }
         
         countryLabel.snp.makeConstraints { make in
-            make.left.equalTo(countryLabel.snp.right).offset(Constants.Offsets.p5.rawValue)
+            make.left.equalTo(countryLabel.snp.right).offset(Constants.cgFloat.p5.rawValue)
             make.centerY.equalToSuperview()
         }
         
         separatorView.snp.makeConstraints { make in
-            make.left.equalTo(countryLabel.snp.right).offset(Constants.Offsets.p5.rawValue)
+            make.left.equalTo(countryLabel.snp.right).offset(Constants.cgFloat.p5.rawValue)
             make.right.equalToSuperview()
-            make.height.equalTo(Constants.Size.p1.rawValue)
+            make.height.equalTo(Constants.cgFloat.p0_5.rawValue)
         }
     }
 }

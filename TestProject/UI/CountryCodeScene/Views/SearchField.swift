@@ -14,6 +14,7 @@ public final class SearchField: UIView {
     public lazy var searchField: UITextField = {
         let textField = UITextField()
         textField.textAlignment = .left
+        textField.font = UIFont(name: "HelveticaNeue-Regular", size: 20)
         textField.placeholder = Texts.CountryCode.searchLabel
         
         return textField
@@ -46,14 +47,14 @@ private extension SearchField {
     
     func constraintSubviews() {
         searchLenceView.snp.makeConstraints { make in
-            make.left.equalToSuperview().inset(Constants.Offsets.p10.rawValue)
+            make.left.equalToSuperview().inset(Constants.cgFloat.p10.rawValue)
             make.centerY.equalTo(searchField)
-            make.width.height.equalTo(Constants.Size.p20.rawValue)
+            make.width.height.equalTo(Constants.cgFloat.p20.rawValue)
         }
         
         searchField.snp.makeConstraints { make in
             make.top.bottom.right.equalToSuperview()
-            make.left.equalTo(searchLenceView.snp.right).offset(Constants.Offsets.p5.rawValue)
+            make.left.equalTo(searchLenceView.snp.right).offset(Constants.cgFloat.p5.rawValue)
         }
     }
 }

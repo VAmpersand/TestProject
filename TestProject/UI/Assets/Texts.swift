@@ -41,6 +41,9 @@ extension Texts {
             return "Sign in an another person"
         }
         
+        static var phoneNumberPlaceholder: String {
+            return "000 000 00 00"
+        }
     }
 }
 
@@ -53,6 +56,10 @@ extension Texts {
         
         static var searchLabel: String {
             return "Search"
+        }
+        
+        static var letterValue: String {
+            return "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
         }
     }
 }
