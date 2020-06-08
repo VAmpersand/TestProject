@@ -1,9 +1,21 @@
-//
-//  FirstScreenViewModel.swift
-//  TestProject
-//
-//  Created by Viktor on 08.06.2020.
-//  Copyright © 2020 Viktor. All rights reserved.
-//
+final class FirstScreenViewModel {
 
-import Foundation
+    var router: FirstScreenRouterProtocol!
+    var parentRouter: Router!
+
+    weak var controller: FirstScreenControllerProtocol?
+
+//    private let dependencies: FirstScreenViewModelDependencyResolver
+//
+//    init(injecting dependencies: FirstScreenViewModelDependencyResolver) {
+//        self.dependencies = dependencies
+//    }
+}
+
+// MARK: - FirstScreenViewModelProtocol
+extension FirstScreenViewModel: FirstScreenViewModelProtocol {
+    func presentMainScreenScene() {
+        router.presentMainScreen()
+    }
+}
+

@@ -1,9 +1,15 @@
-//
-//  MainScreenViewModel.swift
-//  TestProject
-//
-//  Created by Viktor on 08.06.2020.
-//  Copyright © 2020 Viktor. All rights reserved.
-//
+final class MainScreenViewModel {
 
-import Foundation
+    var router: MainScreenRouterProtocol!
+    var parentRouter: Router!
+
+    weak var controller: MainScreenControllerProtocol?
+}
+
+// MARK: - MainScreenViewModelProtocol
+ extension MainScreenViewModel: MainScreenViewModelProtocol {
+    func presentCountryCodeScene() {
+        router.presentCountryCodeScene()
+    }
+}
+

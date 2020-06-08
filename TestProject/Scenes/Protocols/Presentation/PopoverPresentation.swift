@@ -1,9 +1,21 @@
-//
-//  PopoverPresentation.swift
-//  TestProject
-//
-//  Created by Viktor on 08.06.2020.
-//  Copyright © 2020 Viktor. All rights reserved.
-//
+import UIKit
 
-import Foundation
+final class PopoverPresentation { }
+
+// MARK: - Presentation
+extension PopoverPresentation: Presentation {
+    func present(_ controller: UIViewController,
+                 from parentController: UIViewController,
+                 animated: Bool,
+                 completion: (() -> Void)?) {
+        parentController.present(controller, animated: animated, completion: completion)
+    }
+
+    func dismiss(from router: Router, to parentRouter: Router?, animated: Bool, completion: (() -> Void)?) {
+        if parentRouter?.controller?.parent != nil {
+            parentRouter?.controller?.dismiss(animated: animated, completion: completion)
+        } else {
+            router.controller?.dismiss(animated: animated, completion: completion)
+        }
+    }
+}

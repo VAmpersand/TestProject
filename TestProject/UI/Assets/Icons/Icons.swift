@@ -1,9 +1,25 @@
-//
-//  Icons.swift
-//  TestProject
-//
-//  Created by Viktor on 08.06.2020.
-//  Copyright © 2020 Viktor. All rights reserved.
-//
+import UIKit
 
-import Foundation
+public enum Icons { }
+
+public extension Icons {
+    enum CountryCode {
+        static var searchLens: UIImage {
+            image(named: "searchLens")
+        }
+    }
+}
+
+public extension Icons {
+    enum MainScene {
+        static var triangleDown: UIImage {
+            image(named: "triangleDown")
+        }
+    }
+}
+
+extension Icons {
+    static func image(named name: String) -> UIImage {
+        UIImage(named: name) ?? UIImage()
+    }
+}

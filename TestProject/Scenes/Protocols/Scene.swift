@@ -1,9 +1,7 @@
-//
-//  Scene.swift
-//  TestProject
-//
-//  Created by Viktor on 08.06.2020.
-//  Copyright © 2020 Viktor. All rights reserved.
-//
+import UIKit.UIViewController
 
-import Foundation
+protocol Scene: class {
+    var viewController: UIViewController? { get }
+    var router: Router { get }
+}
+

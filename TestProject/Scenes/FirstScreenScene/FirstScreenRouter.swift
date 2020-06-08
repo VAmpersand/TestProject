@@ -1,9 +1,22 @@
-//
-//  FirstScreenRouter.swift
-//  TestProject
-//
-//  Created by Viktor on 08.06.2020.
-//  Copyright © 2020 Viktor. All rights reserved.
-//
+final class FirstScreenRouter: BaseRouter {
+    
+    // weaver: mainScreenScene = MainScreenScene
+    // weaver: mainScreenScene.scope = .transient
+    
+    private let dependencies: FirstScreenRouterDependencyResolver
+    
+    init(injecting dependencies: FirstScreenRouterDependencyResolver) {
+        self.dependencies = dependencies
+        super.init()
+    }
+}
 
-import Foundation
+// MARK: - FirstScreenRouterProtocol
+extension FirstScreenRouter: FirstScreenRouterProtocol {
+    func presentMainScreen() {
+        let mainScreenScene = dependencies.mainScreenScene(parentRouter: self)
+        present(mainScreenScene, using: PopoverPresentation())
+    }
+    
+}
+

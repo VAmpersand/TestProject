@@ -1,9 +1,24 @@
-//
-//  Router.swift
-//  TestProject
-//
-//  Created by Viktor on 08.06.2020.
-//  Copyright © 2020 Viktor. All rights reserved.
-//
+import UIKit.UIViewController
 
-import Foundation
+protocol Router: class {
+    var childRouters: [Router] { get set }
+    var parentRouter: Router? { get set }
+    var controller: UIViewController? { get set }
+}
+
+extension Router {
+    func findRouterInTree<T>() -> T? {
+        if let selfT = self as? T {
+            return selfT
+        }
+
+        for case let childRouter in childRouters {
+            if let found: T = childRouter.findRouterInTree() {
+                return found
+            }
+        }
+
+        return nil
+    }
+}
+
