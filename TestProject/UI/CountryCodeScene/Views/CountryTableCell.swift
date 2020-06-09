@@ -34,12 +34,7 @@ public class CountryTableCell: UITableViewCell {
         return label
     }()
     
-    private lazy var separatorView: UIView = {
-        let view = UIView()
-        view.backgroundColor = UIColor.black.withAlphaComponent(0.3)
-        
-        return view
-    }()
+    private lazy var separatorView = BaseSeparatorView()
 }
 
 extension CountryTableCell {
@@ -79,8 +74,8 @@ extension CountryTableCell {
         
         separatorView.snp.makeConstraints { make in
             make.left.equalTo(countryLabel.snp.right).offset(Constants.cgFloat.p5.rawValue)
-            make.right.equalToSuperview()
-            make.height.equalTo(Constants.cgFloat.p0_5.rawValue)
+            make.right.bottom.equalToSuperview()
+            make.height.equalTo(Constants.cgFloat.p1.rawValue)
         }
     }
 }

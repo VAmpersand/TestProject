@@ -53,12 +53,7 @@ public final class PhoneNumberView: UIView {
         return textField
     }()
     
-    private lazy var separatorView: UIView = {
-        let view = UIView()
-        view.backgroundColor = UIColor.black.withAlphaComponent(0.3)
-        
-        return view
-    }()
+    private lazy var separatorView = BaseSeparatorView()
 }
 
 private extension PhoneNumberView {
@@ -120,7 +115,7 @@ private extension PhoneNumberView {
             make.bottom.equalTo(codeLabel).offset(Constants.cgFloat.p5.rawValue)
             make.left.equalTo(codeLabel)
             make.right.equalToSuperview()
-            make.height.equalTo(Constants.cgFloat.p0_5.rawValue)
+            make.height.equalTo(Constants.cgFloat.p1.rawValue)
         }
     }
 }

@@ -60,6 +60,8 @@
 		77440C3A248ECE0600A87934 /* LettersCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77440C39248ECE0600A87934 /* LettersCollectionView.swift */; };
 		77440C3C248ED5E700A87934 /* String+index.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77440C3B248ED5E700A87934 /* String+index.swift */; };
 		77440C3E248EDD3200A87934 /* LetterCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77440C3D248EDD3200A87934 /* LetterCollectionCell.swift */; };
+		77440C43248F677400A87934 /* LettersCollectionViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77440C42248F677400A87934 /* LettersCollectionViewDelegate.swift */; };
+		77440C45248F714300A87934 /* BaseSeparatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77440C44248F714300A87934 /* BaseSeparatorView.swift */; };
 		83E333BE197B2A0D45399669 /* libPods-TestProject.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 92585AF014343B84831E7AC8 /* libPods-TestProject.a */; };
 /* End PBXBuildFile section */
 
@@ -120,6 +122,8 @@
 		77440C39248ECE0600A87934 /* LettersCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LettersCollectionView.swift; sourceTree = "<group>"; };
 		77440C3B248ED5E700A87934 /* String+index.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+index.swift"; sourceTree = "<group>"; };
 		77440C3D248EDD3200A87934 /* LetterCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LetterCollectionCell.swift; sourceTree = "<group>"; };
+		77440C42248F677400A87934 /* LettersCollectionViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LettersCollectionViewDelegate.swift; sourceTree = "<group>"; };
+		77440C44248F714300A87934 /* BaseSeparatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseSeparatorView.swift; sourceTree = "<group>"; };
 		8B6F9BE48EE14C90F35C9C60 /* Pods-TestProject.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TestProject.release.xcconfig"; path = "Target Support Files/Pods-TestProject/Pods-TestProject.release.xcconfig"; sourceTree = "<group>"; };
 		92585AF014343B84831E7AC8 /* libPods-TestProject.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-TestProject.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -318,6 +322,7 @@
 			children = (
 				77440BF1248E797C00A87934 /* StaticNavigationBar.swift */,
 				77440C12248E89E200A87934 /* BaseMainButton.swift */,
+				77440C44248F714300A87934 /* BaseSeparatorView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -410,8 +415,7 @@
 				77440C37248EBDC300A87934 /* SearchField.swift */,
 				77440C2E248EAB7500A87934 /* CountryTableCell.swift */,
 				77440C30248EB00E00A87934 /* CountryTableHeader.swift */,
-				77440C39248ECE0600A87934 /* LettersCollectionView.swift */,
-				77440C3D248EDD3200A87934 /* LetterCollectionCell.swift */,
+				77440C41248F674E00A87934 /* LettersColllection */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -422,6 +426,16 @@
 				77440C34248EBA0E00A87934 /* PhoneNumberView.swift */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		77440C41248F674E00A87934 /* LettersColllection */ = {
+			isa = PBXGroup;
+			children = (
+				77440C39248ECE0600A87934 /* LettersCollectionView.swift */,
+				77440C42248F677400A87934 /* LettersCollectionViewDelegate.swift */,
+				77440C3D248EDD3200A87934 /* LetterCollectionCell.swift */,
+			);
+			path = LettersColllection;
 			sourceTree = "<group>";
 		};
 		844D93576B302F21C1AEF227 /* Frameworks */ = {
@@ -580,7 +594,9 @@
 				77440C33248EB16400A87934 /* UIView+shadow.swift in Sources */,
 				77440C38248EBDC300A87934 /* SearchField.swift in Sources */,
 				77440BFD248E7EE900A87934 /* FirstScreenViewModel.swift in Sources */,
+				77440C43248F677400A87934 /* LettersCollectionViewDelegate.swift in Sources */,
 				77440C19248EA05C00A87934 /* CountryCodeScene.swift in Sources */,
+				77440C45248F714300A87934 /* BaseSeparatorView.swift in Sources */,
 				77440BE2248E779400A87934 /* MainScreenRouter.swift in Sources */,
 				77440BD0248E75AB00A87934 /* Scene.swift in Sources */,
 				77440C13248E89E200A87934 /* BaseMainButton.swift in Sources */,

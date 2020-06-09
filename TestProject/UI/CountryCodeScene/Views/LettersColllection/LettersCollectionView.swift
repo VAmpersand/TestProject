@@ -11,6 +11,7 @@ public final class LettersCollectionView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
+    weak var delegate: LettersCollectionViewDelegate?
     private let cellID = "CellID"
     
     public lazy var letterCollectionView: UICollectionView = {
@@ -77,5 +78,9 @@ extension LettersCollectionView: UICollectionViewDelegateFlowLayout {
                                sizeForItemAt indexPath: IndexPath) -> CGSize {
         return CGSize(width: collectionView.frame.width,
                       height: collectionView.frame.width)
+    }
+    
+    public func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        delegate?.selectedLetter(at: indexPath.row)
     }
 }

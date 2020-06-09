@@ -61,5 +61,9 @@ extension Texts {
         static var letterValue: String {
             return "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
         }
+        
+        static var saggestionsLabel: String {
+            return "Saggestions"
+        }
     }
 }

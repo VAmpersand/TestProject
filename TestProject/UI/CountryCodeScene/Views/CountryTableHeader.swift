@@ -1,18 +1,23 @@
 import UIKit
 
-public class CountryTableHeader: UITableViewCell {
-    override public init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
-        super.init(style: style, reuseIdentifier: reuseIdentifier)
+public class CountryTableHeader: UITableViewHeaderFooterView {
+    override public init(reuseIdentifier: String?) {
+        super.init(reuseIdentifier: reuseIdentifier)
         
         setupSelf()
     }
-    
+
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
-    public static let cellID = String(describing: CountryTableHeader.self)
-
+    private lazy var containerView: UIView = {
+        let view = UIView()
+        view.backgroundColor = .white
+        
+        return view
+    }()
+    
     public lazy var titleLabel: UILabel = {
         let label = UILabel()
         label.font = UIFont(name: "HelveticaNeue-Bold", size: 20)
@@ -21,39 +26,35 @@ public class CountryTableHeader: UITableViewCell {
         return label
     }()
     
-    private lazy var separatorView: UIView = {
-        let view = UIView()
-        view.backgroundColor = UIColor.black.withAlphaComponent(0.3)
-        
-        return view
-    }()
+    private lazy var separatorView = BaseSeparatorView()
 }
 
 extension CountryTableHeader {
     func setupSelf() {
         addSubviews()
         constraintSubviews()
-        
-        selectionStyle = .none
     }
     
     func addSubviews() {
+        addSubview(containerView)
     [
         titleLabel,
         separatorView,
-    ].forEach { addSubview($0) }
+        ].forEach { containerView.addSubview($0) }
     }
     
-    func constraintSubviews() {        
+    func constraintSubviews() {
+        containerView.snp.makeConstraints { make in
+            make.edges.equalToSuperview()
+        }
+        
         titleLabel.snp.makeConstraints { make in
-            make.left.equalToSuperview().inset(Constants.cgFloat.p5.rawValue)
-            make.centerY.equalToSuperview()
+            make.left.bottom.equalToSuperview().inset(Constants.cgFloat.p5.rawValue)
         }
         
         separatorView.snp.makeConstraints { make in
-            make.left.equalToSuperview().inset(Constants.cgFloat.p5.rawValue)
-            make.right.equalToSuperview()
-            make.height.equalTo(Constants.cgFloat.p0_5.rawValue)
+            make.left.bottom.right.equalToSuperview()
+            make.height.equalTo(Constants.cgFloat.p1.rawValue)
         }
     }
 }

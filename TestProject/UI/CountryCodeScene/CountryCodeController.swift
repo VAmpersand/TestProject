@@ -26,23 +26,25 @@ public final class CountryCodeController: BaseController {
     
     private lazy var countryTableView: UITableView = {
         let table = UITableView()
+        table.showsVerticalScrollIndicator = false
         table.delegate = self
         table.dataSource = self
         table.register(CountryTableCell.self,
                        forCellReuseIdentifier: CountryTableCell.cellID)
+        
         table.separatorStyle = .none
         
         return table
     }()
     
     private lazy var letterCollectionView = LettersCollectionView()
-    
 }
 
 extension CountryCodeController {
     override func setupSelf() {
         super.setupSelf()
-
+        letterCollectionView.delegate = self
+        
         view.backgroundColor = .white
     }
 
@@ -98,11 +100,16 @@ extension CountryCodeController: UITableViewDataSource {
     public func numberOfSections(in tableView: UITableView) -> Int {
         return 26 + 1
     }
-    public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    public func tableView(_ tableView: UITableView,
+                          numberOfRowsInSection section: Int) -> Int {
+        if section == 0 {
+            return 1
+        }
         return 10
     }
     
-    public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    public func tableView(_ tableView: UITableView,
+                          cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: CountryTableCell.cellID,
                                                  for: indexPath) as! CountryTableCell
         
@@ -113,13 +120,39 @@ extension CountryCodeController: UITableViewDataSource {
 
 // MARK: - UITableViewDelegate
 extension CountryCodeController: UITableViewDelegate {
-    public func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+    public func tableView(_ tableView: UITableView,
+                          heightForRowAt indexPath: IndexPath) -> CGFloat {
         return Constants.cgFloat.p40.rawValue
         
     }
     
-    public func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+    public func tableView(_ tableView: UITableView,
+                          heightForHeaderInSection section: Int) -> CGFloat {
         return Constants.cgFloat.p50.rawValue
+    }
+    
+    public func tableView(_ tableView: UITableView,
+                          viewForHeaderInSection section: Int) -> UIView? {
+        let header = CountryTableHeader()
+        header.backgroundColor = .white
+        
+        if section == 0 {
+            header.titleLabel.text = Texts.CountryCode.saggestionsLabel
+        } else {
+            header.titleLabel.text = Texts.CountryCode.letterValue[section - 1]
+        }
+        
+        return header
+        
+    }
+}
+
+// MARK: - LettersCollectionViewDelegate
+extension CountryCodeController: LettersCollectionViewDelegate {
+    public func selectedLetter(at index: Int) {
+        countryTableView.scrollToRow(at: IndexPath(row: 0, section: index + 1),
+                                     at: .top,
+                                     animated: true)
     }
 }
 
