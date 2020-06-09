@@ -4,9 +4,7 @@ public enum Icons { }
 
 public extension Icons {
     enum CountryCode {
-        static var searchLens: UIImage {
-            image(named: "searchLens")
-        }
+    
     }
 }
 

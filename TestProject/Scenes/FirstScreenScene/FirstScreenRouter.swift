@@ -15,7 +15,7 @@ final class FirstScreenRouter: BaseRouter {
 extension FirstScreenRouter: FirstScreenRouterProtocol {
     func presentMainScreen() {
         let mainScreenScene = dependencies.mainScreenScene(parentRouter: self)
-        present(mainScreenScene, using: PopoverPresentation())
+        present(mainScreenScene, using: ModalPresentation())
     }
     
 }

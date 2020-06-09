@@ -17,7 +17,6 @@
 		77440BCE248E759E00A87934 /* Presentation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77440BCD248E759E00A87934 /* Presentation.swift */; };
 		77440BD0248E75AB00A87934 /* Scene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77440BCF248E75AB00A87934 /* Scene.swift */; };
 		77440BD2248E75BC00A87934 /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77440BD1248E75BC00A87934 /* Router.swift */; };
-		77440BD4248E75EB00A87934 /* NavigationPresentation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77440BD3248E75EB00A87934 /* NavigationPresentation.swift */; };
 		77440BD6248E761600A87934 /* BaseScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77440BD5248E761600A87934 /* BaseScene.swift */; };
 		77440BD9248E764100A87934 /* BaseRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77440BD8248E764100A87934 /* BaseRouter.swift */; };
 		77440BDC248E76A100A87934 /* MainScreenScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77440BDB248E76A100A87934 /* MainScreenScene.swift */; };
@@ -28,7 +27,6 @@
 		77440BEB248E787F00A87934 /* MainScreenController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77440BEA248E787F00A87934 /* MainScreenController.swift */; };
 		77440BED248E789E00A87934 /* MainScreenControllerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77440BEC248E789E00A87934 /* MainScreenControllerProtocol.swift */; };
 		77440BF0248E78EE00A87934 /* BaseController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77440BEF248E78EE00A87934 /* BaseController.swift */; };
-		77440BF2248E797C00A87934 /* StaticNavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77440BF1248E797C00A87934 /* StaticNavigationBar.swift */; };
 		77440BF6248E7A7000A87934 /* UIViewController+embeddation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77440BF5248E7A7000A87934 /* UIViewController+embeddation.swift */; };
 		77440BFB248E7EA900A87934 /* FirstScreenScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77440BFA248E7EA900A87934 /* FirstScreenScene.swift */; };
 		77440BFD248E7EE900A87934 /* FirstScreenViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77440BFC248E7EE900A87934 /* FirstScreenViewModel.swift */; };
@@ -56,12 +54,26 @@
 		77440C31248EB00E00A87934 /* CountryTableHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77440C30248EB00E00A87934 /* CountryTableHeader.swift */; };
 		77440C33248EB16400A87934 /* UIView+shadow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77440C32248EB16400A87934 /* UIView+shadow.swift */; };
 		77440C35248EBA0E00A87934 /* PhoneNumberView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77440C34248EBA0E00A87934 /* PhoneNumberView.swift */; };
-		77440C38248EBDC300A87934 /* SearchField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77440C37248EBDC300A87934 /* SearchField.swift */; };
+		77440C38248EBDC300A87934 /* SearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77440C37248EBDC300A87934 /* SearchBar.swift */; };
 		77440C3A248ECE0600A87934 /* LettersCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77440C39248ECE0600A87934 /* LettersCollectionView.swift */; };
 		77440C3C248ED5E700A87934 /* String+index.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77440C3B248ED5E700A87934 /* String+index.swift */; };
 		77440C3E248EDD3200A87934 /* LetterCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77440C3D248EDD3200A87934 /* LetterCollectionCell.swift */; };
 		77440C43248F677400A87934 /* LettersCollectionViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77440C42248F677400A87934 /* LettersCollectionViewDelegate.swift */; };
 		77440C45248F714300A87934 /* BaseSeparatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77440C44248F714300A87934 /* BaseSeparatorView.swift */; };
+		77440C47248F75FD00A87934 /* CountryData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77440C46248F75FD00A87934 /* CountryData.swift */; };
+		77440C4A248F97D000A87934 /* ConfirmNumberController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77440C49248F97D000A87934 /* ConfirmNumberController.swift */; };
+		77440C4C248F980500A87934 /* ConfirmNumberControllerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77440C4B248F980500A87934 /* ConfirmNumberControllerProtocol.swift */; };
+		77440C4F248F984A00A87934 /* ConfirmNumberScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77440C4E248F984A00A87934 /* ConfirmNumberScene.swift */; };
+		77440C51248F989800A87934 /* ConfirmNumberViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77440C50248F989800A87934 /* ConfirmNumberViewModel.swift */; };
+		77440C53248F98C800A87934 /* ConfirmNumberViewModelProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77440C52248F98C800A87934 /* ConfirmNumberViewModelProtocol.swift */; };
+		77440C55248F98E400A87934 /* ConfirmNumberRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77440C54248F98E400A87934 /* ConfirmNumberRouter.swift */; };
+		77440C57248F995400A87934 /* ConfirmNumberRouterProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77440C56248F995400A87934 /* ConfirmNumberRouterProtocol.swift */; };
+		77440C59248F9A1900A87934 /* ModalPresentation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77440C58248F9A1900A87934 /* ModalPresentation.swift */; };
+		77440C5B248F9AA900A87934 /* TopLineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77440C5A248F9AA900A87934 /* TopLineView.swift */; };
+		77440C5E248F9F3700A87934 /* CodeField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77440C5D248F9F3700A87934 /* CodeField.swift */; };
+		77440C60248FC46600A87934 /* UserDefaults+UIKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77440C5F248FC46600A87934 /* UserDefaults+UIKeys.swift */; };
+		77440C62248FDA3B00A87934 /* FadePresentation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77440C61248FDA3B00A87934 /* FadePresentation.swift */; };
+		77440C64248FDDB100A87934 /* CodeFieldDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77440C63248FDDB100A87934 /* CodeFieldDelegate.swift */; };
 		83E333BE197B2A0D45399669 /* libPods-TestProject.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 92585AF014343B84831E7AC8 /* libPods-TestProject.a */; };
 /* End PBXBuildFile section */
 
@@ -79,7 +91,6 @@
 		77440BCD248E759E00A87934 /* Presentation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Presentation.swift; sourceTree = "<group>"; };
 		77440BCF248E75AB00A87934 /* Scene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Scene.swift; sourceTree = "<group>"; };
 		77440BD1248E75BC00A87934 /* Router.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
-		77440BD3248E75EB00A87934 /* NavigationPresentation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationPresentation.swift; sourceTree = "<group>"; };
 		77440BD5248E761600A87934 /* BaseScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseScene.swift; sourceTree = "<group>"; };
 		77440BD8248E764100A87934 /* BaseRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseRouter.swift; sourceTree = "<group>"; };
 		77440BDB248E76A100A87934 /* MainScreenScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainScreenScene.swift; sourceTree = "<group>"; };
@@ -90,7 +101,6 @@
 		77440BEA248E787F00A87934 /* MainScreenController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainScreenController.swift; sourceTree = "<group>"; };
 		77440BEC248E789E00A87934 /* MainScreenControllerProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainScreenControllerProtocol.swift; sourceTree = "<group>"; };
 		77440BEF248E78EE00A87934 /* BaseController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseController.swift; sourceTree = "<group>"; };
-		77440BF1248E797C00A87934 /* StaticNavigationBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StaticNavigationBar.swift; sourceTree = "<group>"; };
 		77440BF5248E7A7000A87934 /* UIViewController+embeddation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+embeddation.swift"; sourceTree = "<group>"; };
 		77440BFA248E7EA900A87934 /* FirstScreenScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstScreenScene.swift; sourceTree = "<group>"; };
 		77440BFC248E7EE900A87934 /* FirstScreenViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstScreenViewModel.swift; sourceTree = "<group>"; };
@@ -118,12 +128,26 @@
 		77440C30248EB00E00A87934 /* CountryTableHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryTableHeader.swift; sourceTree = "<group>"; };
 		77440C32248EB16400A87934 /* UIView+shadow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+shadow.swift"; sourceTree = "<group>"; };
 		77440C34248EBA0E00A87934 /* PhoneNumberView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneNumberView.swift; sourceTree = "<group>"; };
-		77440C37248EBDC300A87934 /* SearchField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchField.swift; sourceTree = "<group>"; };
+		77440C37248EBDC300A87934 /* SearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBar.swift; sourceTree = "<group>"; };
 		77440C39248ECE0600A87934 /* LettersCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LettersCollectionView.swift; sourceTree = "<group>"; };
 		77440C3B248ED5E700A87934 /* String+index.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+index.swift"; sourceTree = "<group>"; };
 		77440C3D248EDD3200A87934 /* LetterCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LetterCollectionCell.swift; sourceTree = "<group>"; };
 		77440C42248F677400A87934 /* LettersCollectionViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LettersCollectionViewDelegate.swift; sourceTree = "<group>"; };
 		77440C44248F714300A87934 /* BaseSeparatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseSeparatorView.swift; sourceTree = "<group>"; };
+		77440C46248F75FD00A87934 /* CountryData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryData.swift; sourceTree = "<group>"; };
+		77440C49248F97D000A87934 /* ConfirmNumberController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmNumberController.swift; sourceTree = "<group>"; };
+		77440C4B248F980500A87934 /* ConfirmNumberControllerProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmNumberControllerProtocol.swift; sourceTree = "<group>"; };
+		77440C4E248F984A00A87934 /* ConfirmNumberScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmNumberScene.swift; sourceTree = "<group>"; };
+		77440C50248F989800A87934 /* ConfirmNumberViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmNumberViewModel.swift; sourceTree = "<group>"; };
+		77440C52248F98C800A87934 /* ConfirmNumberViewModelProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmNumberViewModelProtocol.swift; sourceTree = "<group>"; };
+		77440C54248F98E400A87934 /* ConfirmNumberRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmNumberRouter.swift; sourceTree = "<group>"; };
+		77440C56248F995400A87934 /* ConfirmNumberRouterProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmNumberRouterProtocol.swift; sourceTree = "<group>"; };
+		77440C58248F9A1900A87934 /* ModalPresentation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModalPresentation.swift; sourceTree = "<group>"; };
+		77440C5A248F9AA900A87934 /* TopLineView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopLineView.swift; sourceTree = "<group>"; };
+		77440C5D248F9F3700A87934 /* CodeField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodeField.swift; sourceTree = "<group>"; };
+		77440C5F248FC46600A87934 /* UserDefaults+UIKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserDefaults+UIKeys.swift"; sourceTree = "<group>"; };
+		77440C61248FDA3B00A87934 /* FadePresentation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FadePresentation.swift; sourceTree = "<group>"; };
+		77440C63248FDDB100A87934 /* CodeFieldDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodeFieldDelegate.swift; sourceTree = "<group>"; };
 		8B6F9BE48EE14C90F35C9C60 /* Pods-TestProject.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TestProject.release.xcconfig"; path = "Target Support Files/Pods-TestProject/Pods-TestProject.release.xcconfig"; sourceTree = "<group>"; };
 		92585AF014343B84831E7AC8 /* libPods-TestProject.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-TestProject.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -196,12 +220,12 @@
 			path = Generated;
 			sourceTree = "<group>";
 		};
-		77440BC5248E750800A87934 /* MainScene */ = {
+		77440BC5248E750800A87934 /* MainRouter */ = {
 			isa = PBXGroup;
 			children = (
 				77440BC6248E751F00A87934 /* MainRouter.swift */,
 			);
-			name = MainScene;
+			name = MainRouter;
 			path = ..;
 			sourceTree = "<group>";
 		};
@@ -209,10 +233,11 @@
 			isa = PBXGroup;
 			children = (
 				77440BC9248E755900A87934 /* Protocols */,
-				77440BC5248E750800A87934 /* MainScene */,
+				77440BC5248E750800A87934 /* MainRouter */,
 				77440BF9248E7E8200A87934 /* FirstScreenScene */,
-				77440BDA248E767F00A87934 /* MainScreen */,
+				77440BDA248E767F00A87934 /* MainScreenScene */,
 				77440C17248EA04100A87934 /* CountryCodeScene */,
+				77440C4D248F982900A87934 /* ConfirmNumberScene */,
 			);
 			path = Scenes;
 			sourceTree = "<group>";
@@ -233,7 +258,8 @@
 			isa = PBXGroup;
 			children = (
 				77440BCB248E757D00A87934 /* PopoverPresentation.swift */,
-				77440BD3248E75EB00A87934 /* NavigationPresentation.swift */,
+				77440C58248F9A1900A87934 /* ModalPresentation.swift */,
+				77440C61248FDA3B00A87934 /* FadePresentation.swift */,
 			);
 			path = Presentation;
 			sourceTree = "<group>";
@@ -247,7 +273,7 @@
 			path = Base;
 			sourceTree = "<group>";
 		};
-		77440BDA248E767F00A87934 /* MainScreen */ = {
+		77440BDA248E767F00A87934 /* MainScreenScene */ = {
 			isa = PBXGroup;
 			children = (
 				77440BDB248E76A100A87934 /* MainScreenScene.swift */,
@@ -256,7 +282,7 @@
 				77440BE1248E779400A87934 /* MainScreenRouter.swift */,
 				77440BE3248E77CA00A87934 /* MainScreenRouterProtocol.swift */,
 			);
-			path = MainScreen;
+			path = MainScreenScene;
 			sourceTree = "<group>";
 		};
 		77440BE5248E77EE00A87934 /* UI */ = {
@@ -267,6 +293,7 @@
 				77440C04248E7F7700A87934 /* FirstScreenVScene */,
 				77440BE9248E786A00A87934 /* MainScreen */,
 				77440C24248EA18800A87934 /* CountryCodeScene */,
+				77440C48248F97A600A87934 /* ConfirmNumberScene */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -320,9 +347,9 @@
 		77440BF3248E798200A87934 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				77440BF1248E797C00A87934 /* StaticNavigationBar.swift */,
 				77440C12248E89E200A87934 /* BaseMainButton.swift */,
 				77440C44248F714300A87934 /* BaseSeparatorView.swift */,
+				77440C5A248F9AA900A87934 /* TopLineView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -334,6 +361,7 @@
 				77440C0E248E824F00A87934 /* UIColor+inits.swift */,
 				77440C32248EB16400A87934 /* UIView+shadow.swift */,
 				77440C3B248ED5E700A87934 /* String+index.swift */,
+				77440C5F248FC46600A87934 /* UserDefaults+UIKeys.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -374,6 +402,7 @@
 			isa = PBXGroup;
 			children = (
 				77440C15248E94F600A87934 /* User.swift */,
+				77440C46248F75FD00A87934 /* CountryData.swift */,
 			);
 			path = Base;
 			sourceTree = "<group>";
@@ -412,7 +441,7 @@
 		77440C2D248EAB4D00A87934 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				77440C37248EBDC300A87934 /* SearchField.swift */,
+				77440C37248EBDC300A87934 /* SearchBar.swift */,
 				77440C2E248EAB7500A87934 /* CountryTableCell.swift */,
 				77440C30248EB00E00A87934 /* CountryTableHeader.swift */,
 				77440C41248F674E00A87934 /* LettersColllection */,
@@ -436,6 +465,37 @@
 				77440C3D248EDD3200A87934 /* LetterCollectionCell.swift */,
 			);
 			path = LettersColllection;
+			sourceTree = "<group>";
+		};
+		77440C48248F97A600A87934 /* ConfirmNumberScene */ = {
+			isa = PBXGroup;
+			children = (
+				77440C5C248F9EFD00A87934 /* Views */,
+				77440C49248F97D000A87934 /* ConfirmNumberController.swift */,
+				77440C4B248F980500A87934 /* ConfirmNumberControllerProtocol.swift */,
+			);
+			path = ConfirmNumberScene;
+			sourceTree = "<group>";
+		};
+		77440C4D248F982900A87934 /* ConfirmNumberScene */ = {
+			isa = PBXGroup;
+			children = (
+				77440C4E248F984A00A87934 /* ConfirmNumberScene.swift */,
+				77440C50248F989800A87934 /* ConfirmNumberViewModel.swift */,
+				77440C52248F98C800A87934 /* ConfirmNumberViewModelProtocol.swift */,
+				77440C54248F98E400A87934 /* ConfirmNumberRouter.swift */,
+				77440C56248F995400A87934 /* ConfirmNumberRouterProtocol.swift */,
+			);
+			path = ConfirmNumberScene;
+			sourceTree = "<group>";
+		};
+		77440C5C248F9EFD00A87934 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				77440C5D248F9F3700A87934 /* CodeField.swift */,
+				77440C63248FDDB100A87934 /* CodeFieldDelegate.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 		844D93576B302F21C1AEF227 /* Frameworks */ = {
@@ -571,18 +631,24 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				77440C47248F75FD00A87934 /* CountryData.swift in Sources */,
 				77440C06248E7F9B00A87934 /* FirstScreenController.swift in Sources */,
 				77440BF0248E78EE00A87934 /* BaseController.swift in Sources */,
+				77440C5E248F9F3700A87934 /* CodeField.swift in Sources */,
 				77440BC7248E751F00A87934 /* MainRouter.swift in Sources */,
 				77440BDE248E774700A87934 /* MainScreenViewModel.swift in Sources */,
 				77440BDC248E76A100A87934 /* MainScreenScene.swift in Sources */,
+				77440C55248F98E400A87934 /* ConfirmNumberRouter.swift in Sources */,
 				77440C0B248E80B300A87934 /* Constants.swift in Sources */,
 				77440C1F248EA0FD00A87934 /* CountryCodeRouter.swift in Sources */,
 				77440BCE248E759E00A87934 /* Presentation.swift in Sources */,
-				77440BF2248E797C00A87934 /* StaticNavigationBar.swift in Sources */,
+				77440C53248F98C800A87934 /* ConfirmNumberViewModelProtocol.swift in Sources */,
+				77440C60248FC46600A87934 /* UserDefaults+UIKeys.swift in Sources */,
 				77440BC4248E74E800A87934 /* Weaver.swift in Sources */,
 				77440BF6248E7A7000A87934 /* UIViewController+embeddation.swift in Sources */,
+				77440C57248F995400A87934 /* ConfirmNumberRouterProtocol.swift in Sources */,
 				77440C21248EA14200A87934 /* CountryCodeRouterProtocol.swift in Sources */,
+				77440C5B248F9AA900A87934 /* TopLineView.swift in Sources */,
 				77440BD2248E75BC00A87934 /* Router.swift in Sources */,
 				77440C01248E7F2D00A87934 /* FirstScreenRouter.swift in Sources */,
 				77440C28248EA7E500A87934 /* Icons.swift in Sources */,
@@ -591,8 +657,11 @@
 				77440C31248EB00E00A87934 /* CountryTableHeader.swift in Sources */,
 				77440C03248E7F5800A87934 /* FirstScreenViewRouterProtocol.swift in Sources */,
 				77440C3E248EDD3200A87934 /* LetterCollectionCell.swift in Sources */,
+				77440C62248FDA3B00A87934 /* FadePresentation.swift in Sources */,
+				77440C59248F9A1900A87934 /* ModalPresentation.swift in Sources */,
 				77440C33248EB16400A87934 /* UIView+shadow.swift in Sources */,
-				77440C38248EBDC300A87934 /* SearchField.swift in Sources */,
+				77440C38248EBDC300A87934 /* SearchBar.swift in Sources */,
+				77440C4A248F97D000A87934 /* ConfirmNumberController.swift in Sources */,
 				77440BFD248E7EE900A87934 /* FirstScreenViewModel.swift in Sources */,
 				77440C43248F677400A87934 /* LettersCollectionViewDelegate.swift in Sources */,
 				77440C19248EA05C00A87934 /* CountryCodeScene.swift in Sources */,
@@ -601,10 +670,12 @@
 				77440BD0248E75AB00A87934 /* Scene.swift in Sources */,
 				77440C13248E89E200A87934 /* BaseMainButton.swift in Sources */,
 				77440BAC248E722C00A87934 /* AppDelegate.swift in Sources */,
+				77440C4F248F984A00A87934 /* ConfirmNumberScene.swift in Sources */,
 				77440C08248E7FD400A87934 /* FirstScreenControllerProtocol.swift in Sources */,
 				77440C0D248E814900A87934 /* Texts.swift in Sources */,
 				77440C26248EA1A000A87934 /* CountryCodeControllerProtocol.swift in Sources */,
 				77440BE0248E777600A87934 /* MainScreenViewModelProtocol.swift in Sources */,
+				77440C64248FDDB100A87934 /* CodeFieldDelegate.swift in Sources */,
 				77440BFB248E7EA900A87934 /* FirstScreenScene.swift in Sources */,
 				77440BFF248E7F1200A87934 /* FirstScreenViewModelProtocol.swift in Sources */,
 				77440C1D248EA0DB00A87934 /* CountryCodeViewModelProtocol.swift in Sources */,
@@ -612,17 +683,18 @@
 				77440C16248E94F600A87934 /* User.swift in Sources */,
 				77440BD9248E764100A87934 /* BaseRouter.swift in Sources */,
 				77440C35248EBA0E00A87934 /* PhoneNumberView.swift in Sources */,
+				77440C51248F989800A87934 /* ConfirmNumberViewModel.swift in Sources */,
 				77440BEB248E787F00A87934 /* MainScreenController.swift in Sources */,
 				77440C1B248EA0AD00A87934 /* CountryCodeViewModel.swift in Sources */,
 				77440C3C248ED5E700A87934 /* String+index.swift in Sources */,
 				77440C11248E825F00A87934 /* Colors.swift in Sources */,
 				77440BD6248E761600A87934 /* BaseScene.swift in Sources */,
 				77440C0F248E824F00A87934 /* UIColor+inits.swift in Sources */,
+				77440C4C248F980500A87934 /* ConfirmNumberControllerProtocol.swift in Sources */,
 				77440BAE248E722C00A87934 /* SceneDelegate.swift in Sources */,
 				77440BCC248E757D00A87934 /* PopoverPresentation.swift in Sources */,
 				77440BED248E789E00A87934 /* MainScreenControllerProtocol.swift in Sources */,
 				77440C2F248EAB7500A87934 /* CountryTableCell.swift in Sources */,
-				77440BD4248E75EB00A87934 /* NavigationPresentation.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

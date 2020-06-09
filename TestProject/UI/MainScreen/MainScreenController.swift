@@ -1,20 +1,17 @@
 import UIKit
 
 public final class MainScreenController: BaseController {
-    override public func viewDidLoad() {
-        super.viewDidLoad()
-        
-        setupSelf()
-        setupUserData(for: User())
-    }
-    
-    override public  func viewWillLayoutSubviews() {
-        super.viewWillLayoutSubviews()
-        
-        view.layer.cornerRadius = 25
-    }
-    
     public var viewModel: MainScreenViewModelProtocol!
+    
+    private lazy var topLineView = TopLineView()
+    
+    private lazy var containerView: UIView = {
+        let view = UIView()
+        view.backgroundColor = .white
+        view.layer.cornerRadius = 25
+        
+        return view
+    }()
     
     private lazy var imageView: UIImageView = {
         let view = UIImageView()
@@ -25,7 +22,7 @@ public final class MainScreenController: BaseController {
     
     private lazy var titleLabel: UILabel = {
         let label = UILabel()
-        label.font = UIFont(name: "HelveticaNeue-Bold", size: 26)
+        label.font = UIFont(name: "Arial-BoldMT", size: 26)
         label.textAlignment = .center
         label.numberOfLines = 2
         label.text = [
@@ -33,28 +30,25 @@ public final class MainScreenController: BaseController {
             Texts.MainScene.gideDataLabel,
         ].joined(separator: ":\n")
         
-        
         return label
     }()
     
     private lazy var greetingsLabel: UILabel = {
         let label = UILabel()
-        label.font = UIFont(name: "HelveticaNeue-Bold", size: 26)
+        label.font = UIFont(name: "Arial-BoldMT", size: 26)
         label.textAlignment = .center
         label.textColor = Colors.MintColor
         label.text = Texts.MainScene.greetingsLable
-        
         
         return label
     }()
     
     private lazy var descreiptionLabel: UILabel = {
         let label = UILabel()
-        label.font = UIFont(name: "HelveticaNeue-Regular", size: 12)
+        label.font = UIFont.systemFont(ofSize: 14)
         label.textAlignment = .center
         label.numberOfLines = 0
         label.text = Texts.MainScene.descriptionLabel
-        
         
         return label
     }()
@@ -81,7 +75,7 @@ public final class MainScreenController: BaseController {
     private lazy var notYouLabel: UILabel = {
         let label = UILabel()
         label.text = Texts.MainScene.notYouLabel
-        label.font = UIFont(name: "HelveticaNeue-Regular", size: 16)
+        label.font = UIFont.boldSystemFont(ofSize: 16)
         label.textAlignment = .right
 
         return label
@@ -91,7 +85,7 @@ public final class MainScreenController: BaseController {
         let button = UIButton()
         button.setTitle(Texts.MainScene.signInLabel,
                         for: .normal)
-        button.titleLabel?.font = UIFont(name: "HelveticaNeue-Regular", size: 16)
+        button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 16)
         button.setTitleColor(Colors.MintColor,
                              for: .normal)
         button.titleLabel?.textAlignment = .left
@@ -123,12 +117,13 @@ extension MainScreenController {
         super.setupSelf()
         addSubviews()
         constraintSubviews()
-        
-        view.backgroundColor = .white
+        setupUserData(for: User())
     }
 
     override func addSubviews() {
         super.addSubviews()
+        view.addSubview(topLineView)
+        view.addSubview(containerView)
     [
         imageView,
         titleLabel,
@@ -137,11 +132,23 @@ extension MainScreenController {
         phoneNumberView,
         confirmButton,
         signInStackView,
-        ].forEach { view.addSubview($0) }
+    ].forEach { containerView.addSubview($0) }
     }
 
     override func constraintSubviews() {
         super.constraintSubviews()
+        containerView.snp.makeConstraints { make in
+            make.bottom.left.right.equalToSuperview()
+            make.top.equalTo(view.safeAreaLayoutGuide).inset(Constants.cgFloat.p10.rawValue)
+        }
+        
+        topLineView.snp.makeConstraints { make in
+            make.centerX.equalToSuperview()
+            make.top.equalTo(containerView).offset(-Constants.cgFloat.p15.rawValue)
+            make.height.equalTo(Constants.cgFloat.p5.rawValue)
+            make.width.equalTo(Constants.cgFloat.p40.rawValue)
+        }
+        
         imageView.snp.makeConstraints { make in
             make.left.right.equalToSuperview().inset(Constants.cgFloat.p15.rawValue)
             make.top.equalToSuperview().inset(Constants.cgFloat.p30.rawValue)
@@ -159,7 +166,7 @@ extension MainScreenController {
         }
         
         descreiptionLabel.snp.makeConstraints { make in
-            make.left.right.equalToSuperview().inset(Constants.cgFloat.p15.rawValue)
+            make.left.right.equalToSuperview().inset(Constants.cgFloat.p25.rawValue)
             make.top.equalTo(greetingsLabel.snp.bottom).offset(Constants.cgFloat.p15.rawValue)
         }
         
@@ -167,7 +174,6 @@ extension MainScreenController {
             make.left.right.equalToSuperview().inset(Constants.cgFloat.p15.rawValue)
             make.top.equalTo(descreiptionLabel.snp.bottom).offset(Constants.cgFloat.p50.rawValue)
             make.height.equalTo(Constants.cgFloat.p40.rawValue)
-            
         }
         
         confirmButton.snp.makeConstraints { make in
@@ -187,7 +193,10 @@ extension MainScreenController {
 // MARK: - Action
 private extension MainScreenController {
     @objc func confirmButtonHendler() {
+        guard let phoneBody = phoneNumberView.phoneNumberField.text,
+            let code = phoneNumberView.codeLabel.text else { return }
         
+        viewModel.presentConfirmNumberScene(phone: code + phoneBody)
     }
     
     @objc func signInButtonHendler() {
@@ -205,5 +214,11 @@ extension MainScreenController: MainScreenControllerProtocol {
     public func setupUserData(for user: User) {
         greetingsLabel.text = [Texts.MainScene.greetingsLable,
                                user.name].joined(separator: " ") + "!"
+        phoneNumberView.codeLabel.text = user.code
+        phoneNumberView.phoneNumberField.text = user.phone
+        let curentData = countriesData.first { data -> Bool in
+            data.code == user.code
+        }
+        phoneNumberView.flagView.text = curentData?.flag
     }
 }

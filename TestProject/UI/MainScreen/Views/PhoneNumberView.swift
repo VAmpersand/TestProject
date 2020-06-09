@@ -33,22 +33,33 @@ public final class PhoneNumberView: UIView {
         return view
     }()
     
-    public lazy var flagView = UIView()
-    
-    private lazy var codeLabel: UILabel = {
+    public lazy var flagView: UILabel = {
         let label = UILabel()
-        label.font = UIFont(name: "HelveticaNeue-Regular", size: 26)
-        label.textAlignment = .right
-        label.text = "+7"
+        label.font = UIFont.systemFont(ofSize: 17)
+        label.textAlignment = .center
         
+        return label
+    }()
+    
+    public lazy var codeLabel: UILabel = {
+        let label = UILabel()
+        label.font = UIFont.systemFont(ofSize: 23)
+        label.textAlignment = .right
+
         return label
     }()
     
     public lazy var phoneNumberField: UITextField = {
         let textField = UITextField()
         textField.textAlignment = .left
-        textField.font = UIFont(name: "HelveticaNeue-Regular", size: 26)
-        textField.placeholder = Texts.MainScene.phoneNumberPlaceholder
+        textField.font = UIFont.systemFont(ofSize: 23)
+        textField.attributedPlaceholder = NSAttributedString(
+            string: Texts.MainScene.phoneNumberPlaceholder,
+            attributes: [.font: UIFont.systemFont(ofSize: 22)]
+        )
+        textField.keyboardType = .phonePad
+        textField.keyboardAppearance = .dark
+        textField.delegate = self
         
         return textField
     }()
@@ -80,7 +91,7 @@ private extension PhoneNumberView {
     func constraintSubviews() {
         containerView.snp.makeConstraints { make in
             make.left.top.bottom.equalToSuperview()
-            make.width.equalTo(Constants.cgFloat.p60.rawValue)
+            make.width.equalTo(Constants.cgFloat.p65.rawValue)
         }
         
         countryCodeButton.snp.makeConstraints { make in
@@ -96,7 +107,7 @@ private extension PhoneNumberView {
         flagView.snp.makeConstraints { make in
             make.centerY.equalToSuperview()
             make.left.equalToSuperview().inset(Constants.cgFloat.p10.rawValue)
-            make.width.equalTo(Constants.cgFloat.p20.rawValue)
+            make.width.equalTo(Constants.cgFloat.p25.rawValue)
         }
         
         codeLabel.snp.makeConstraints { make in
@@ -120,3 +131,22 @@ private extension PhoneNumberView {
     }
 }
 
+extension PhoneNumberView: UITextFieldDelegate {
+    public func textField(_ textField: UITextField,
+                          shouldChangeCharactersIn range: NSRange,
+                          replacementString string: String) -> Bool {
+        guard let currentText = textField.text as NSString? else { return false }
+        let changedString = string.replacingOccurrences(of: " ", with: "")
+        let newText = currentText.replacingCharacters(in: range, with: changedString)
+        
+        if newText.count > 15 {
+            return false
+        }
+
+        if CharacterSet(charactersIn: "0123456789").isSuperset(of: CharacterSet(charactersIn: newText)) {
+            textField.text = newText
+        }
+
+        return false
+    }
+}

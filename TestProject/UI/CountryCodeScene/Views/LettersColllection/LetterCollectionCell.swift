@@ -16,7 +16,7 @@ public class LetterCollectionCell: UICollectionViewCell {
     public lazy var letterLabel: UILabel = {
         let label = UILabel()
         label.textAlignment = .center
-        label.font = label.font.withSize(13)
+        label.font = label.font.withSize(15)
         
         return label
     }()

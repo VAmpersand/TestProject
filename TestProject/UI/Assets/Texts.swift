@@ -67,3 +67,25 @@ extension Texts {
         }
     }
 }
+
+
+extension Texts {
+    enum ConfirmNumber {
+        static var titleLable: String {
+            return "Confirm your number"
+        }
+        
+        static var descriptionLabel: String {
+            return "Please enter 4-digit code We just sent to"
+        }
+        
+        static var didNotGetLabel: String {
+            return "Did'nt get a text."
+        }
+        
+        static var sendButton: String {
+            return "Send again"
+        }
+    }
+}
+

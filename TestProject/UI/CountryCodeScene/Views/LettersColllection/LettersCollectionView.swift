@@ -17,8 +17,7 @@ public final class LettersCollectionView: UIView {
     public lazy var letterCollectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
         layout.sectionInset = UIEdgeInsets(top: 0, left: 0, bottom: 1, right: 1)
-        layout.minimumLineSpacing = 0
-        layout.minimumInteritemSpacing = 0
+        layout.minimumLineSpacing = 2
         layout.scrollDirection = .vertical
         
         let collectionView = UICollectionView(frame: .zero,

@@ -3,6 +3,16 @@
 import Foundation
 import SnapKit
 import UIKit
+// MARK: - ConfirmNumberViewModel
+protocol ConfirmNumberViewModelDependencyResolver {
+    var phone: String { get }
+}
+final class ConfirmNumberViewModelDependencyContainer: ConfirmNumberViewModelDependencyResolver {
+    let phone: String
+    init(phone: String) {
+        self.phone = phone
+    }
+}
 // MARK: - FirstScreenRouter
 protocol FirstScreenRouterDependencyResolver {
     func mainScreenScene(parentRouter: Router) -> MainScreenScene
@@ -66,14 +76,49 @@ final class CountryCodeSceneDependencyContainer: CountryCodeSceneDependencyResol
         self.parentRouter = parentRouter
     }
 }
+// MARK: - ConfirmNumberScene
+protocol ConfirmNumberSceneDependencyResolver {
+    var parentRouter: Router { get }
+    var phone: String { get }
+    var confirmNumberRouter: ConfirmNumberRouter { get }
+    func confirmNumberViewModel(phone: String) -> ConfirmNumberViewModel
+    var confirmNumberController: ConfirmNumberController { get }
+}
+final class ConfirmNumberSceneDependencyContainer: ConfirmNumberSceneDependencyResolver {
+    let parentRouter: Router
+    let phone: String
+    var confirmNumberRouter: ConfirmNumberRouter {
+        let value = ConfirmNumberRouter()
+        return value
+    }
+    func confirmNumberViewModel(phone: String) -> ConfirmNumberViewModel {
+        let dependencies = ConfirmNumberViewModelDependencyContainer(phone: phone)
+        let value = ConfirmNumberViewModel(injecting: dependencies)
+        return value
+    }
+    var confirmNumberController: ConfirmNumberController {
+        let value = ConfirmNumberController()
+        return value
+    }
+    init(parentRouter: Router, phone: String) {
+        self.parentRouter = parentRouter
+        self.phone = phone
+    }
+}
 // MARK: - MainScreenRouter
 protocol MainScreenRouterDependencyResolver {
     func countryCodeScene(parentRouter: Router) -> CountryCodeScene
+    func confirmNumberScene(parentRouter: Router, phone: String) -> ConfirmNumberScene
 }
 final class MainScreenRouterDependencyContainer: MainScreenRouterDependencyResolver {
     func countryCodeScene(parentRouter: Router) -> CountryCodeScene {
         let dependencies = CountryCodeSceneDependencyContainer(parentRouter: parentRouter)
         let value = CountryCodeScene(injecting: dependencies)
+        return value
+    }
+    func confirmNumberScene(parentRouter: Router, phone: String) -> ConfirmNumberScene {
+        let dependencies = ConfirmNumberSceneDependencyContainer(parentRouter: parentRouter, phone: phone)
+        let value = ConfirmNumberScene(injecting: dependencies)
         return value
     }
     init() {

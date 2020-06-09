@@ -18,7 +18,7 @@ public final class BaseMainButton: UIButton {
 
 private extension BaseMainButton {
     func setupSelf() {
-        titleLabel?.font = UIFont(name: "HelveticaNeue-Regular", size: 16)
+        titleLabel?.font = UIFont.boldSystemFont(ofSize: 16)
         backgroundColor = Colors.MintColor
         tintColor = .white
         layer.cornerRadius = 12

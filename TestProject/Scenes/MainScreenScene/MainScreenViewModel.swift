@@ -11,5 +11,9 @@ final class MainScreenViewModel {
     func presentCountryCodeScene() {
         router.presentCountryCodeScene()
     }
+    
+    func presentConfirmNumberScene(phone: String) {
+        router.presentConfirmNumberScene(phone: phone)
+    }
 }
 

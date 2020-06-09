@@ -20,7 +20,7 @@ public class CountryTableHeader: UITableViewHeaderFooterView {
     
     public lazy var titleLabel: UILabel = {
         let label = UILabel()
-        label.font = UIFont(name: "HelveticaNeue-Bold", size: 20)
+        label.font = UIFont.boldSystemFont(ofSize: 20)
         label.textAlignment = .left
         
         return label

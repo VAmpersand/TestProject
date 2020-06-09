@@ -1,12 +1,6 @@
 import UIKit
 
 public final class FirstScreenController: BaseController {
-    override public func viewDidLoad() {
-        super.viewDidLoad()
-        setupSelf()
-
-    }
-    
     override public var preferredStatusBarStyle: UIStatusBarStyle {
         return .darkContent
     }

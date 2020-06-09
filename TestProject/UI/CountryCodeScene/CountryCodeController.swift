@@ -1,28 +1,28 @@
 import UIKit
 
 public final class CountryCodeController: BaseController {
-    override public func viewDidLoad() {
-        super.viewDidLoad()
-        setupSelf()
-
-    }
-    
     override public var preferredStatusBarStyle: UIStatusBarStyle {
         return .darkContent
     }
     
     public var viewModel: CountryCodeViewModelProtocol!
+    private var filteredData: [CountryDate]!
     
     private lazy var titleLabel: UILabel = {
         let label = UILabel()
-        label.font = UIFont(name: "HelveticaNeue-Bold", size: 26)
+        label.font = UIFont(name: "Arial-BoldMT", size: 26)
         label.textAlignment = .center
         label.text = Texts.CountryCode.titleLable
         
         return label
     }()
     
-    private lazy var searchField = SearchField()
+    private lazy var searchField: SearchBar = {
+        let searchBar = SearchBar()
+        searchBar.searchBar.delegate = self
+        
+        return searchBar
+    }()
     
     private lazy var countryTableView: UITableView = {
         let table = UITableView()
@@ -44,6 +44,7 @@ extension CountryCodeController {
     override func setupSelf() {
         super.setupSelf()
         letterCollectionView.delegate = self
+        filteredData = countriesData
         
         view.backgroundColor = .white
     }
@@ -84,7 +85,7 @@ extension CountryCodeController {
             make.left.equalTo(countryTableView.snp.right).offset(Constants.cgFloat.p10.rawValue)
             make.bottom.equalTo(view.safeAreaLayoutGuide)
             make.width.equalTo(Constants.cgFloat.p15.rawValue)
-            make.height.equalTo(Constants.cgFloat.p300.rawValue)
+            make.height.equalTo(Constants.cgFloat.p440.rawValue)
 
         }
     }
@@ -105,7 +106,22 @@ extension CountryCodeController: UITableViewDataSource {
         if section == 0 {
             return 1
         }
-        return 10
+        return filteredData.count
+    }
+    
+  
+}
+
+// MARK: - UITableViewDelegate
+extension CountryCodeController: UITableViewDelegate {
+    public func tableView(_ tableView: UITableView,
+                          heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return Constants.cgFloat.p50.rawValue
+    }
+    
+    public func tableView(_ tableView: UITableView,
+                          heightForHeaderInSection section: Int) -> CGFloat {
+        return Constants.cgFloat.p60.rawValue
     }
     
     public func tableView(_ tableView: UITableView,
@@ -113,22 +129,18 @@ extension CountryCodeController: UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: CountryTableCell.cellID,
                                                  for: indexPath) as! CountryTableCell
         
+        if indexPath.section == 0 {
+            cell.flagView.text = countriesData[0].flag
+            cell.countryLabel.text = countriesData[0].name
+            cell.codeLabel.text = "(" + countriesData[0].code + ")"
+        } else {
+            cell.flagView.text = filteredData[indexPath.row].flag
+            cell.countryLabel.text = filteredData[indexPath.row].name
+            cell.codeLabel.text = "(" + filteredData[indexPath.row].code + ")"
+        }
+        
         
         return cell
-    }
-}
-
-// MARK: - UITableViewDelegate
-extension CountryCodeController: UITableViewDelegate {
-    public func tableView(_ tableView: UITableView,
-                          heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return Constants.cgFloat.p40.rawValue
-        
-    }
-    
-    public func tableView(_ tableView: UITableView,
-                          heightForHeaderInSection section: Int) -> CGFloat {
-        return Constants.cgFloat.p50.rawValue
     }
     
     public func tableView(_ tableView: UITableView,
@@ -153,6 +165,22 @@ extension CountryCodeController: LettersCollectionViewDelegate {
         countryTableView.scrollToRow(at: IndexPath(row: 0, section: index + 1),
                                      at: .top,
                                      animated: true)
+    }
+}
+
+// MARK: - UISearchBarDelegate
+extension CountryCodeController: UISearchBarDelegate {
+    public func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        if let first = searchText.first, "+1234567890".contains(first) {
+            filteredData = searchText.isEmpty ? countriesData : countriesData.filter() {
+                ($0.code.lowercased() as String).contains(searchText.lowercased())
+            }
+        } else {
+            filteredData = searchText.isEmpty ? countriesData : countriesData.filter() {
+                ($0.name.lowercased() as String).contains(searchText.lowercased())
+            }
+        }
+        countryTableView.reloadData()
     }
 }
 

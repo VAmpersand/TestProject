@@ -12,15 +12,17 @@ public class CountryTableCell: UITableViewCell {
     }
     public static let cellID = String(describing: CountryTableCell.self)
     
-    public lazy var flagView: UIImageView = {
-        let view = UIImageView()
+    public lazy var flagView: UILabel = {
+        let label = UILabel()
+        label.font = label.font.withSize(17)
+        label.textAlignment = .center
         
-        return view
+        return label
     }()
     
     public lazy var countryLabel: UILabel = {
         let label = UILabel()
-        label.font = UIFont(name: "HelveticaNeue-Regular", size: 20)
+        label.font = UIFont.systemFont(ofSize: 20)
         label.textAlignment = .left
         
         return label
@@ -28,7 +30,7 @@ public class CountryTableCell: UITableViewCell {
     
     public lazy var codeLabel: UILabel = {
         let label = UILabel()
-        label.font = UIFont(name: "HelveticaNeue-Bold", size: 20)
+        label.font = UIFont.boldSystemFont(ofSize: 20)
         label.textAlignment = .left
         
         return label
@@ -59,7 +61,8 @@ extension CountryTableCell {
         flagView.snp.makeConstraints { make in
             make.left.equalToSuperview().inset(Constants.cgFloat.p5.rawValue)
             make.top.bottom.equalToSuperview().inset(Constants.cgFloat.p10.rawValue)
-            make.width.equalTo(flagView.snp.height)
+            
+            make.width.height.equalTo(Constants.cgFloat.p25.rawValue)
         }
         
         countryLabel.snp.makeConstraints { make in
@@ -67,13 +70,13 @@ extension CountryTableCell {
             make.centerY.equalToSuperview()
         }
         
-        countryLabel.snp.makeConstraints { make in
+        codeLabel.snp.makeConstraints { make in
             make.left.equalTo(countryLabel.snp.right).offset(Constants.cgFloat.p5.rawValue)
             make.centerY.equalToSuperview()
         }
         
         separatorView.snp.makeConstraints { make in
-            make.left.equalTo(countryLabel.snp.right).offset(Constants.cgFloat.p5.rawValue)
+            make.left.equalTo(countryLabel)
             make.right.bottom.equalToSuperview()
             make.height.equalTo(Constants.cgFloat.p1.rawValue)
         }
