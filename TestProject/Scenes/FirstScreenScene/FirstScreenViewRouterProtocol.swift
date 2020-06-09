@@ -1,3 +1,0 @@
-protocol FirstScreenRouterProtocol {
-    func presentMainScreen()
-}

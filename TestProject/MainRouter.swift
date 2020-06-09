@@ -3,8 +3,8 @@ import SnapKit
 
 final class MainRouter: BaseRouter {
     
-    // weaver: firstScreenScene = FirstScreenScene
-    // weaver: firstScreenScene.scope = .transient
+    // weaver: mainScreenScene = MainScreenScene
+    // weaver: mainScreenScene.scope = .transient
 
     private let dependencies: MainRouterDependencyResolver
     
@@ -28,11 +28,11 @@ extension MainRouter {
             fatalError("Failed to configure windowScene")
         }
         self.windowScene = windowScene
-        let firstScreenScene = dependencies.firstScreenScene(parentRouter: self)
+        let mainScreenScene = dependencies.mainScreenScene(parentRouter: self)
         
         window = UIWindow(frame: windowScene.coordinateSpace.bounds)
         window?.windowScene = windowScene
         window?.makeKeyAndVisible()
-        window.rootViewController = firstScreenScene.viewController
+        window.rootViewController = mainScreenScene.viewController
     }
 }

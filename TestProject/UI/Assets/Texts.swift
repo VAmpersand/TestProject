@@ -44,6 +44,30 @@ extension Texts {
         static var phoneNumberPlaceholder: String {
             return "000 000 00 00"
         }
+        
+        static var emailPlaceholder: String {
+            return "Your e-mail"
+        }
+        
+        static var anotherSignInTitle: String {
+            return "or use another way to sign in"
+        }
+        
+        static var phone: String {
+            return "Sign in with phone number"
+        }
+        
+        static var google: String {
+            return "Sign in with Google"
+        }
+        
+        static var apple: String {
+            return "Sign in with Apple"
+        }
+        
+        static var facebook: String {
+            return "Sign in with Facebook"
+        }
     }
 }
 

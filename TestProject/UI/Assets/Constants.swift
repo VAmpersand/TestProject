@@ -8,6 +8,7 @@ extension Constants {
         case p1 = 1
         case p5 = 5
         case p7 = 7
+        case p8 = 8
         case p10 = 10
         case p15 = 15
         case p17 = 17
@@ -23,6 +24,7 @@ extension Constants {
         case p70 = 70
         case p80 = 80
         case p230 = 230
+        case p250 = 250
         case p270 = 270
         case p300 = 300
         case p340 = 340

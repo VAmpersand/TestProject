@@ -13,6 +13,12 @@ public final class CodeField: UIView {
     
     weak var delegate: CodeFieldDelegate?
     
+    public var firstResponder: Bool = false {
+        didSet {
+            layer.borderColor = firstResponder ? UIColor.black.cgColor : UIColor.clear.cgColor
+        }
+    }
+    
     public lazy var phoneNumberField: UITextField = {
         let textField = UITextField()
         textField.textAlignment = .center
@@ -22,6 +28,7 @@ public final class CodeField: UIView {
         textField.layer.masksToBounds = true
         textField.keyboardType = .decimalPad
         textField.keyboardAppearance = .dark
+        textField.tintColor = .clear
         
         return textField
     }()
@@ -32,8 +39,11 @@ private extension CodeField {
         addSubviews()
         constraintSubviews()
         
-        backgroundColor = .white
+        layer.borderColor = UIColor.clear.cgColor
+        layer.borderWidth = 0.5
         layer.cornerRadius = 5
+        backgroundColor = .white
+
         applyFirstShadow()
     }
     

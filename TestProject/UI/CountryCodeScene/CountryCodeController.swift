@@ -8,6 +8,9 @@ public final class CountryCodeController: BaseController {
     public var viewModel: CountryCodeViewModelProtocol!
     private var filteredData: [CountryDate]!
     
+    private lazy var topLineView = TopLineView()
+    private lazy var mainContainerView = MainContainerView()
+    
     private lazy var titleLabel: UILabel = {
         let label = UILabel()
         label.font = UIFont(name: "Arial-BoldMT", size: 26)
@@ -43,24 +46,38 @@ public final class CountryCodeController: BaseController {
 extension CountryCodeController {
     override func setupSelf() {
         super.setupSelf()
+        addGesture() 
         letterCollectionView.delegate = self
         filteredData = countriesData
         
-        view.backgroundColor = .white
     }
 
     override func addSubviews() {
         super.addSubviews()
+        view.addSubview(mainContainerView)
+        view.addSubview(topLineView)
         [
             titleLabel,
             searchField,
             countryTableView,
             letterCollectionView,
-        ].forEach { view.addSubview($0) }
+        ].forEach { mainContainerView.addSubview($0) }
     }
 
     override func constraintSubviews() {
         super.constraintSubviews()
+        mainContainerView.snp.makeConstraints { make in
+            make.top.equalToSuperview().inset(Constants.cgFloat.p8.rawValue)
+            make.left.right.bottom.equalToSuperview()
+        }
+        
+        topLineView.snp.makeConstraints { make in
+            make.centerX.equalToSuperview()
+            make.top.equalTo(mainContainerView).offset(-Constants.cgFloat.p8.rawValue)
+            make.height.equalTo(Constants.cgFloat.p5.rawValue)
+            make.width.equalTo(Constants.cgFloat.p40.rawValue)
+        }
+        
         titleLabel.snp.makeConstraints { make in
             make.centerX.equalToSuperview()
             make.top.equalToSuperview().inset(Constants.cgFloat.p30.rawValue)
@@ -159,8 +176,8 @@ extension CountryCodeController: UITableViewDelegate {
     }
 }
 
-// MARK: - LettersCollectionViewDelegate
-extension CountryCodeController: LettersCollectionViewDelegate {
+// MARK: - LettersCollectionDelegate
+extension CountryCodeController: LettersCollectionDelegate {
     public func selectedLetter(at index: Int) {
         countryTableView.scrollToRow(at: IndexPath(row: 0, section: index + 1),
                                      at: .top,
@@ -181,6 +198,18 @@ extension CountryCodeController: UISearchBarDelegate {
             }
         }
         countryTableView.reloadData()
+    }
+}
+
+extension CountryCodeController {
+    func addGesture() {
+        let tapGesture = UITapGestureRecognizer(target: self,
+                                                action: #selector(handleTap))
+        view.addGestureRecognizer(tapGesture)
+    }
+    
+    @objc func handleTap() {
+        view.endEditing(true)
     }
 }
 

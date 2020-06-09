@@ -112,7 +112,6 @@ extension ConfirmNumberController {
         codeField_1.delegate = self
         codeField_2.delegate = self
         codeField_3.delegate = self
-        
         addObservers()
     }
 
@@ -138,7 +137,7 @@ extension ConfirmNumberController {
         
         topLineView.snp.makeConstraints { make in
             make.centerX.equalToSuperview()
-            make.top.equalTo(containerView).offset(-Constants.cgFloat.p15.rawValue)
+            make.top.equalTo(containerView).offset(-Constants.cgFloat.p8.rawValue)
             make.height.equalTo(Constants.cgFloat.p5.rawValue)
             make.width.equalTo(Constants.cgFloat.p40.rawValue)
         }
@@ -203,6 +202,19 @@ private extension ConfirmNumberController {
             )
             make.height.equalTo(Constants.cgFloat.p300.rawValue)
         }
+        
+        [
+            codeField_0,
+            codeField_1,
+            codeField_2,
+            codeField_3,
+        ].forEach {
+            if $0.phoneNumberField.isFirstResponder {
+                $0.firstResponder = true
+            } else {
+                $0.firstResponder = false
+            }
+        }
     }
     
     @objc func keyboardWillHide(_ notification: NSNotification) {
@@ -225,10 +237,13 @@ extension ConfirmNumberController: CodeFieldDelegate {
     public func numberEntered(number: Int) {
         if codeField_0.phoneNumberField.isFirstResponder {
             codeValue[0] = number
+            codeField_1.phoneNumberField.becomeFirstResponder()
         } else if codeField_1.phoneNumberField.isFirstResponder {
             codeValue[1] = number
+            codeField_2.phoneNumberField.becomeFirstResponder()
         } else if codeField_2.phoneNumberField.isFirstResponder {
             codeValue[2] = number
+            codeField_3.phoneNumberField.becomeFirstResponder()
         } else if codeField_3.phoneNumberField.isFirstResponder {
             codeValue[3] = number
         }

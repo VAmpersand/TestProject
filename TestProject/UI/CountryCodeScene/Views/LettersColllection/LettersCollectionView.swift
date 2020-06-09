@@ -11,7 +11,7 @@ public final class LettersCollectionView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
-    weak var delegate: LettersCollectionViewDelegate?
+    weak var delegate: LettersCollectionDelegate?
     private let cellID = "CellID"
     
     public lazy var letterCollectionView: UICollectionView = {
