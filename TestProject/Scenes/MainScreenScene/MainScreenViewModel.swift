@@ -12,7 +12,7 @@ final class MainScreenViewModel {
         router.presentCountryCodeScene()
     }
     
-    func presentConfirmNumberScene(phone: String) {
+    func presentConfirmNumberScene(with phone: String) {
         router.presentConfirmNumberScene(phone: phone)
     }
 }

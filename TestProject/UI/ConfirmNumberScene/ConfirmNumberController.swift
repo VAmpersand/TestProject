@@ -80,7 +80,7 @@ public final class ConfirmNumberController: BaseController {
         button.setTitle(Texts.ConfirmNumber.sendButton,
                         for: .normal)
         button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 16)
-        button.setTitleColor(Colors.MintColor,
+        button.setTitleColor(Colors.mintColor,
                              for: .normal)
         button.titleLabel?.textAlignment = .left
         button.addTarget(self,

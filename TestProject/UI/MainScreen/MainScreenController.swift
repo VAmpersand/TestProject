@@ -42,7 +42,7 @@ public final class MainScreenController: BaseController {
         let label = UILabel()
         label.font = UIFont(name: "Arial-BoldMT", size: 26)
         label.textAlignment = .center
-        label.textColor = Colors.MintColor
+        label.textColor = Colors.mintColor
         label.text = Texts.MainScene.greetingsLable
         
         return label
@@ -71,7 +71,7 @@ public final class MainScreenController: BaseController {
            button.setTitle(Texts.MainScene.confirmButtonLable,
                            for: .normal)
            button.addTouchUpInsideTarget(self,
-                                         action: #selector(confirmButtonHendler))
+                                         action: #selector(confirmButtonHandler))
            
            return button
     }()
@@ -91,11 +91,11 @@ public final class MainScreenController: BaseController {
         button.setTitle(Texts.MainScene.signInLabel,
                         for: .normal)
         button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 16)
-        button.setTitleColor(Colors.MintColor,
+        button.setTitleColor(Colors.mintColor,
                              for: .normal)
         button.titleLabel?.textAlignment = .left
         button.addTarget(self,
-                         action: #selector(signInButtonHendler),
+                         action: #selector(signInButtonHandler),
                          for: .touchUpInside)
         
         return button
@@ -201,7 +201,7 @@ extension MainScreenController {
         }
         
         titleLabel.snp.makeConstraints { make in
-            make.top.equalTo(imageView.snp.bottom).offset(Constants.cgFloat.p25.rawValue)
+            make.top.equalTo(imageView.snp.bottom).offset(Constants.cgFloat.p30.rawValue)
             make.left.right.equalToSuperview().inset(Constants.cgFloat.p15.rawValue)
         }
         
@@ -255,18 +255,18 @@ extension MainScreenController {
 
 // MARK: - Action
 private extension MainScreenController {
-    @objc func confirmButtonHendler() {
+    @objc func confirmButtonHandler() {
         guard let phoneBody = phoneNumberView.phoneNumberField.text,
             let code = phoneNumberView.codeLabel.text else { return }
         
-        viewModel.presentConfirmNumberScene(phone: code + phoneBody)
+        viewModel.presentConfirmNumberScene(with: code + phoneBody)
     }
     
     @objc func presentCountryCodeScene() {
         viewModel.presentCountryCodeScene()
     }
     
-    @objc func signInButtonHendler() {
+    @objc func signInButtonHandler() {
         signInPressed.toggle()
         updateLoginViews()
     }
@@ -278,7 +278,6 @@ private extension MainScreenController {
         signInStackView.isHidden = signInPressed
         
         if signInPressed {
-
             UIView.animate(withDuration: 0.3) {
                 self.scrollView.contentOffset = CGPoint(x: 0,
                                                         y: Constants.cgFloat.p250.rawValue)
@@ -288,7 +287,6 @@ private extension MainScreenController {
                 self.scrollView.contentOffset = CGPoint(x: 0,
                                                         y: -Constants.cgFloat.p40.rawValue)
             }
-            
         }
     }
     
@@ -329,13 +327,20 @@ private extension MainScreenController {
         guard let keyboardFrame = userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue else { return }
         let keyboardFrameHeight = keyboardFrame.cgRectValue.height
         
-        scrollView.contentOffset  = CGPoint(x: 0,
-                                            y: keyboardFrameHeight)
+        if phoneNumberView.phoneNumberField.isFirstResponder
+            && emailField.isFirstResponder {
+            scrollView.contentOffset  = CGPoint(x: 0,
+                                                y: keyboardFrameHeight)
+        }
     }
     
     @objc func keyboardWillHide() {
-        scrollView.contentOffset = CGPoint(x: 0,
-                                           y: -Constants.cgFloat.p40.rawValue)
+        if phoneNumberView.phoneNumberField.isFirstResponder
+            && emailField.isFirstResponder {
+            scrollView.contentOffset = CGPoint(x: 0,
+                                               y: -Constants.cgFloat.p40.rawValue)
+            
+        }
     }
 }
 

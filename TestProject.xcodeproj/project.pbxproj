@@ -73,6 +73,7 @@
 		77440C6D2490245200A87934 /* LoginOptionsContainerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77440C6C2490245200A87934 /* LoginOptionsContainerDelegate.swift */; };
 		77440C6F24902F5D00A87934 /* UIView+roundedCorners.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77440C6E24902F5D00A87934 /* UIView+roundedCorners.swift */; };
 		77440C7124902FC000A87934 /* MainContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77440C7024902FC000A87934 /* MainContainerView.swift */; };
+		77440C732490D6F500A87934 /* Images.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77440C722490D6F500A87934 /* Images.swift */; };
 		83E333BE197B2A0D45399669 /* libPods-TestProject.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 92585AF014343B84831E7AC8 /* libPods-TestProject.a */; };
 /* End PBXBuildFile section */
 
@@ -146,6 +147,7 @@
 		77440C6C2490245200A87934 /* LoginOptionsContainerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginOptionsContainerDelegate.swift; sourceTree = "<group>"; };
 		77440C6E24902F5D00A87934 /* UIView+roundedCorners.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+roundedCorners.swift"; sourceTree = "<group>"; };
 		77440C7024902FC000A87934 /* MainContainerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainContainerView.swift; sourceTree = "<group>"; };
+		77440C722490D6F500A87934 /* Images.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Images.swift; sourceTree = "<group>"; };
 		8B6F9BE48EE14C90F35C9C60 /* Pods-TestProject.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TestProject.release.xcconfig"; path = "Target Support Files/Pods-TestProject/Pods-TestProject.release.xcconfig"; sourceTree = "<group>"; };
 		92585AF014343B84831E7AC8 /* libPods-TestProject.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-TestProject.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -370,6 +372,7 @@
 				77440C0A248E80B300A87934 /* Constants.swift */,
 				77440C10248E825F00A87934 /* Colors.swift */,
 				77440C0C248E814900A87934 /* Texts.swift */,
+				77440C722490D6F500A87934 /* Images.swift */,
 				77440C29248EA7EB00A87934 /* Icons */,
 			);
 			path = Assets;
@@ -681,6 +684,7 @@
 				77440BAE248E722C00A87934 /* SceneDelegate.swift in Sources */,
 				77440BCC248E757D00A87934 /* PopoverPresentation.swift in Sources */,
 				77440BED248E789E00A87934 /* MainScreenControllerProtocol.swift in Sources */,
+				77440C732490D6F500A87934 /* Images.swift in Sources */,
 				77440C2F248EAB7500A87934 /* CountryTableCell.swift in Sources */,
 				77440C6F24902F5D00A87934 /* UIView+roundedCorners.swift in Sources */,
 			);

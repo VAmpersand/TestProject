@@ -50,6 +50,7 @@ extension CountryCodeController {
         letterCollectionView.delegate = self
         filteredData = countriesData
         
+        view.backgroundColor = .clear
     }
 
     override func addSubviews() {
