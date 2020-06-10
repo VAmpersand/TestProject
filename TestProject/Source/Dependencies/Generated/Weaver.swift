@@ -7,12 +7,12 @@ import SnapKit
 import UIKit
 // MARK: - ConfirmNumberViewModel
 protocol ConfirmNumberViewModelDependencyResolver {
-    var phone: String { get }
+    var authMethod: String { get }
 }
 final class ConfirmNumberViewModelDependencyContainer: ConfirmNumberViewModelDependencyResolver {
-    let phone: String
-    init(phone: String) {
-        self.phone = phone
+    let authMethod: String
+    init(authMethod: String) {
+        self.authMethod = authMethod
     }
 }
 // MARK: - CountryCodeScene
@@ -43,20 +43,20 @@ final class CountryCodeSceneDependencyContainer: CountryCodeSceneDependencyResol
 // MARK: - ConfirmNumberScene
 protocol ConfirmNumberSceneDependencyResolver {
     var parentRouter: Router { get }
-    var phone: String { get }
+    var authMethod: String { get }
     var confirmNumberRouter: ConfirmNumberRouter { get }
-    func confirmNumberViewModel(phone: String) -> ConfirmNumberViewModel
+    func confirmNumberViewModel(authMethod: String) -> ConfirmNumberViewModel
     var confirmNumberController: ConfirmNumberController { get }
 }
 final class ConfirmNumberSceneDependencyContainer: ConfirmNumberSceneDependencyResolver {
     let parentRouter: Router
-    let phone: String
+    let authMethod: String
     var confirmNumberRouter: ConfirmNumberRouter {
         let value = ConfirmNumberRouter()
         return value
     }
-    func confirmNumberViewModel(phone: String) -> ConfirmNumberViewModel {
-        let dependencies = ConfirmNumberViewModelDependencyContainer(phone: phone)
+    func confirmNumberViewModel(authMethod: String) -> ConfirmNumberViewModel {
+        let dependencies = ConfirmNumberViewModelDependencyContainer(authMethod: authMethod)
         let value = ConfirmNumberViewModel(injecting: dependencies)
         return value
     }
@@ -64,15 +64,15 @@ final class ConfirmNumberSceneDependencyContainer: ConfirmNumberSceneDependencyR
         let value = ConfirmNumberController()
         return value
     }
-    init(parentRouter: Router, phone: String) {
+    init(parentRouter: Router, authMethod: String) {
         self.parentRouter = parentRouter
-        self.phone = phone
+        self.authMethod = authMethod
     }
 }
 // MARK: - MainScreenRouter
 protocol MainScreenRouterDependencyResolver {
     func countryCodeScene(parentRouter: Router) -> CountryCodeScene
-    func confirmNumberScene(parentRouter: Router, phone: String) -> ConfirmNumberScene
+    func confirmNumberScene(parentRouter: Router, authMethod: String) -> ConfirmNumberScene
 }
 final class MainScreenRouterDependencyContainer: MainScreenRouterDependencyResolver {
     func countryCodeScene(parentRouter: Router) -> CountryCodeScene {
@@ -80,8 +80,8 @@ final class MainScreenRouterDependencyContainer: MainScreenRouterDependencyResol
         let value = CountryCodeScene(injecting: dependencies)
         return value
     }
-    func confirmNumberScene(parentRouter: Router, phone: String) -> ConfirmNumberScene {
-        let dependencies = ConfirmNumberSceneDependencyContainer(parentRouter: parentRouter, phone: phone)
+    func confirmNumberScene(parentRouter: Router, authMethod: String) -> ConfirmNumberScene {
+        let dependencies = ConfirmNumberSceneDependencyContainer(parentRouter: parentRouter, authMethod: authMethod)
         let value = ConfirmNumberScene(injecting: dependencies)
         return value
     }

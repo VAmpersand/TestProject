@@ -254,12 +254,11 @@ extension ConfirmNumberController: CodeFieldDelegate {
     }
 }
 
-
 // MARK: - ConfirmNumberControllerProtocol
 extension ConfirmNumberController: ConfirmNumberControllerProtocol {
-    public func setupPhone(phone: String) {
+    public func setupData(authMethod: String) {
         descreiptionLabel.text = [Texts.ConfirmNumber.descriptionLabel,
-                                  phone].joined(separator: "\n")
+                                  authMethod].joined(separator: "\n")
     }
 }
 

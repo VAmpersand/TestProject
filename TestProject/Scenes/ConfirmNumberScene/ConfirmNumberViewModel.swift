@@ -1,12 +1,11 @@
 final class ConfirmNumberViewModel {
     
-    // weaver: phone <= String
+    // weaver: authMethod <= String
 
     var router: ConfirmNumberRouterProtocol!
     var parentRouter: Router!
 
     weak var controller: ConfirmNumberControllerProtocol?
-
     private let dependencies: ConfirmNumberViewModelDependencyResolver
 
     init(injecting dependencies: ConfirmNumberViewModelDependencyResolver) {
@@ -17,9 +16,8 @@ final class ConfirmNumberViewModel {
 // MARK: - ConfirmNumberViewModelProtocol
 extension ConfirmNumberViewModel: ConfirmNumberViewModelProtocol {
     func viewDidLoad() {
-        controller?.setupPhone(phone: dependencies.phone)
+        controller?.setupData(authMethod: dependencies.authMethod)
     }
-    
     
     func handleClose() {
         router.handleClose()

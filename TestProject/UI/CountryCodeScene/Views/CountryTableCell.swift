@@ -10,6 +10,7 @@ public class CountryTableCell: UITableViewCell {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+    
     public static let cellID = String(describing: CountryTableCell.self)
     
     public lazy var flagView: UILabel = {
@@ -54,7 +55,6 @@ extension CountryTableCell {
         codeLabel,
         separatorView,
     ].forEach { addSubview($0) }
-        
     }
     
     func constraintSubviews() {

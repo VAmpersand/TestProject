@@ -10,7 +10,8 @@ public final class MainScreenController: BaseController {
     private lazy var scrollView: UIScrollView = {
         let scrollView = UIScrollView()
         scrollView.showsVerticalScrollIndicator = false
-        scrollView.contentInset = .init(top: 0, left: 0, bottom: 0, right: 0)
+        scrollView.contentInset = .init(top: 40, left: 0, bottom: 0, right: 0)
+        scrollView.bounces = true
         
         return scrollView
     }()
@@ -285,6 +286,7 @@ private extension MainScreenController {
     @objc func signInButtonHandler() {
         signInPressed.toggle()
         updateLoginViews()
+        view.endEditing(true)
     }
 }
 
@@ -294,6 +296,7 @@ private extension MainScreenController {
         signInStackView.isHidden = signInPressed
         
         if signInPressed {
+            scrollView.isScrollEnabled = true
             UIView.animate(withDuration: 0.3) {
                 self.scrollView.contentOffset = CGPoint(x: 0,
                                                         y: Constants.cgFloat.p250.rawValue)
@@ -303,6 +306,7 @@ private extension MainScreenController {
                 self.scrollView.contentOffset = CGPoint(x: 0,
                                                         y: -Constants.cgFloat.p40.rawValue)
             }
+            scrollView.isScrollEnabled = false
         }
     }
     
@@ -353,9 +357,10 @@ private extension MainScreenController {
     @objc func keyboardWillHide() {
         if phoneNumberView.phoneNumberField.isFirstResponder
             || emailField.isFirstResponder {
-            scrollView.contentOffset = CGPoint(x: 0,
-                                               y: -Constants.cgFloat.p40.rawValue)
-            
+            if !signInPressed {
+                scrollView.contentOffset = CGPoint(x: 0,
+                                                   y: -Constants.cgFloat.p40.rawValue)
+            }
         }
     }
 }

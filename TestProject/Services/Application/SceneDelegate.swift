@@ -11,8 +11,9 @@ class SceneDelegate: UIResponder {
 }
 
 extension SceneDelegate: UIWindowSceneDelegate {
-    
-    func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
+    func scene(_ scene: UIScene,
+               willConnectTo session: UISceneSession,
+               options connectionOptions: UIScene.ConnectionOptions) {
         dependencies.mainRouter.startApp(in: scene)
     }
 }

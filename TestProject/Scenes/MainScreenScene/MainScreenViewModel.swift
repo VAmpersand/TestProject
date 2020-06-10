@@ -15,13 +15,12 @@ final class MainScreenViewModel {
 
 // MARK: - MainScreenViewModelProtocol
 extension MainScreenViewModel: MainScreenViewModelProtocol {
-    
     func presentCountryCodeScene() {
         router.presentCountryCodeScene()
     }
     
-    func presentConfirmNumberScene(with phone: String) {
-        router.presentConfirmNumberScene(phone: phone)
+    func presentConfirmNumberScene(with authMethod: String) {
+        router.presentConfirmNumberScene(authMethod: authMethod)
     }
     
     func postUserData(_ userData: PostingUserData) {

@@ -1,5 +1,12 @@
 import UIKit
 
+public enum LoginOptions: CaseIterable {
+    case phone
+    case google
+    case apple
+    case facebook
+}
+
 public final class LoginOptionsView: UIView {
     public init(loginOptions: LoginOptions) {
         self.loginOptions = loginOptions

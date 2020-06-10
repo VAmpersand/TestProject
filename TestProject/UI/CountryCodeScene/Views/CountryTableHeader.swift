@@ -40,7 +40,7 @@ extension CountryTableHeader {
     [
         titleLabel,
         separatorView,
-        ].forEach { containerView.addSubview($0) }
+    ].forEach { containerView.addSubview($0) }
     }
     
     func constraintSubviews() {

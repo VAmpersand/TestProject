@@ -12,7 +12,6 @@ final class MainScreenRouter: BaseRouter {
         self.dependencies = dependencies
         super.init()
     }
-    
 }
 
 // MARK: - MainScreenRouterProtocol
@@ -22,9 +21,9 @@ extension MainScreenRouter: MainScreenRouterProtocol {
         present(countryCodeScene, using: PopoverPresentation())
     }
     
-    func presentConfirmNumberScene(phone: String) {
+    func presentConfirmNumberScene(authMethod: String) {
         let confirmNumberScene = dependencies.confirmNumberScene(parentRouter: self,
-                                                                 phone: phone)
+                                                                 authMethod: authMethod)
         present(confirmNumberScene, using: FadePresentation())
     }
 }

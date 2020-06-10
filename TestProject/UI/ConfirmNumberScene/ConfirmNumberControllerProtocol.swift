@@ -1,4 +1,4 @@
 public protocol ConfirmNumberControllerProtocol: class {
-    func setupPhone(phone: String)
+    func setupData(authMethod: String)
 }
 

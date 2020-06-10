@@ -10,7 +10,6 @@ public class BaseController: UIViewController {
     override public var preferredStatusBarStyle: UIStatusBarStyle {
         return .lightContent
     }
-
 }
 
 extension BaseController {
@@ -18,8 +17,7 @@ extension BaseController {
         addSubviews()
         constraintSubviews()
         
-        view.backgroundColor = UIColor.black.withAlphaComponent(0.1)
-        view.layer.cornerRadius = 25
+        view.backgroundColor = UIColor.black.withAlphaComponent(0.2)
     }
     
     @objc func addSubviews() {

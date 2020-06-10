@@ -104,14 +104,8 @@ extension CountryCodeController {
             make.bottom.equalTo(view.safeAreaLayoutGuide)
             make.width.equalTo(Constants.cgFloat.p15.rawValue)
             make.height.equalTo(Constants.cgFloat.p440.rawValue)
-
         }
     }
-}
-
-// MARK: - Action
-private extension CountryCodeController {
-
 }
 
 // MARK: - UITableViewDataSource
@@ -126,8 +120,6 @@ extension CountryCodeController: UITableViewDataSource {
         }
         return filteredData.count
     }
-    
-  
 }
 
 // MARK: - UITableViewDelegate

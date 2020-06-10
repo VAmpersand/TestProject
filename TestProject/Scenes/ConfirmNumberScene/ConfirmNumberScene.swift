@@ -2,7 +2,7 @@ final class ConfirmNumberScene: BaseScene {
 
     // weaver: parentRouter <= Router
     
-    // weaver: phone <= String
+    // weaver: authMethod <= String
 
     // weaver: confirmNumberRouter = ConfirmNumberRouter
     // weaver: confirmNumberRouter.scope = .transient
@@ -15,7 +15,7 @@ final class ConfirmNumberScene: BaseScene {
 
     init(injecting dependencies: ConfirmNumberSceneDependencyResolver) {
         let router = dependencies.confirmNumberRouter
-        let viewModel = dependencies.confirmNumberViewModel(phone: dependencies.phone)
+        let viewModel = dependencies.confirmNumberViewModel(authMethod: dependencies.authMethod)
         let controller = dependencies.confirmNumberController
 
         controller.viewModel = viewModel

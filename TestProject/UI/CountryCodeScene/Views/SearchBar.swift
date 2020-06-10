@@ -34,9 +34,7 @@ private extension SearchBar {
     }
     
     func addSubviews() {
-        [
-            searchBar,
-        ].forEach { addSubview($0) }
+        addSubview(searchBar) 
     }
     
     func constraintSubviews() {

@@ -1,8 +1,6 @@
 import Foundation
 
-public enum URLs {}
-
-extension URLs {
+public enum URLs {
     static var mainScreenImageURL: String {
         return "https://app.surprizeme.ru/media/store/1186_i1KaYnj_8DuYTzc.jpg"
     }

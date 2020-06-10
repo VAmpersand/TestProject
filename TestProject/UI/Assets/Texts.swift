@@ -71,7 +71,6 @@ extension Texts {
     }
 }
 
-
 extension Texts {
     enum CountryCode {
         static var titleLable: String {
@@ -91,7 +90,6 @@ extension Texts {
         }
     }
 }
-
 
 extension Texts {
     enum ConfirmNumber {

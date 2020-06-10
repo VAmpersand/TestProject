@@ -27,7 +27,6 @@
 		77440BEB248E787F00A87934 /* MainScreenController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77440BEA248E787F00A87934 /* MainScreenController.swift */; };
 		77440BED248E789E00A87934 /* MainScreenControllerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77440BEC248E789E00A87934 /* MainScreenControllerProtocol.swift */; };
 		77440BF0248E78EE00A87934 /* BaseController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77440BEF248E78EE00A87934 /* BaseController.swift */; };
-		77440BF6248E7A7000A87934 /* UIViewController+embeddation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77440BF5248E7A7000A87934 /* UIViewController+embeddation.swift */; };
 		77440C0B248E80B300A87934 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77440C0A248E80B300A87934 /* Constants.swift */; };
 		77440C0D248E814900A87934 /* Texts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77440C0C248E814900A87934 /* Texts.swift */; };
 		77440C0F248E824F00A87934 /* UIColor+inits.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77440C0E248E824F00A87934 /* UIColor+inits.swift */; };
@@ -64,11 +63,9 @@
 		77440C59248F9A1900A87934 /* ModalPresentation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77440C58248F9A1900A87934 /* ModalPresentation.swift */; };
 		77440C5B248F9AA900A87934 /* TopLineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77440C5A248F9AA900A87934 /* TopLineView.swift */; };
 		77440C5E248F9F3700A87934 /* CodeField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77440C5D248F9F3700A87934 /* CodeField.swift */; };
-		77440C60248FC46600A87934 /* UserDefaults+UIKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77440C5F248FC46600A87934 /* UserDefaults+UIKeys.swift */; };
 		77440C62248FDA3B00A87934 /* FadePresentation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77440C61248FDA3B00A87934 /* FadePresentation.swift */; };
 		77440C64248FDDB100A87934 /* CodeFieldDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77440C63248FDDB100A87934 /* CodeFieldDelegate.swift */; };
 		77440C66248FE70F00A87934 /* LoginOptionsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77440C65248FE70F00A87934 /* LoginOptionsView.swift */; };
-		77440C68248FED4D00A87934 /* LoginOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77440C67248FED4D00A87934 /* LoginOptions.swift */; };
 		77440C6A24901BCA00A87934 /* LoginOptionsContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77440C6924901BCA00A87934 /* LoginOptionsContainerView.swift */; };
 		77440C6D2490245200A87934 /* LoginOptionsContainerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77440C6C2490245200A87934 /* LoginOptionsContainerDelegate.swift */; };
 		77440C6F24902F5D00A87934 /* UIView+roundedCorners.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77440C6E24902F5D00A87934 /* UIView+roundedCorners.swift */; };
@@ -103,7 +100,6 @@
 		77440BEA248E787F00A87934 /* MainScreenController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainScreenController.swift; sourceTree = "<group>"; };
 		77440BEC248E789E00A87934 /* MainScreenControllerProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainScreenControllerProtocol.swift; sourceTree = "<group>"; };
 		77440BEF248E78EE00A87934 /* BaseController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseController.swift; sourceTree = "<group>"; };
-		77440BF5248E7A7000A87934 /* UIViewController+embeddation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+embeddation.swift"; sourceTree = "<group>"; };
 		77440C0A248E80B300A87934 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		77440C0C248E814900A87934 /* Texts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Texts.swift; sourceTree = "<group>"; };
 		77440C0E248E824F00A87934 /* UIColor+inits.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+inits.swift"; sourceTree = "<group>"; };
@@ -140,11 +136,9 @@
 		77440C58248F9A1900A87934 /* ModalPresentation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModalPresentation.swift; sourceTree = "<group>"; };
 		77440C5A248F9AA900A87934 /* TopLineView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopLineView.swift; sourceTree = "<group>"; };
 		77440C5D248F9F3700A87934 /* CodeField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodeField.swift; sourceTree = "<group>"; };
-		77440C5F248FC46600A87934 /* UserDefaults+UIKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserDefaults+UIKeys.swift"; sourceTree = "<group>"; };
 		77440C61248FDA3B00A87934 /* FadePresentation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FadePresentation.swift; sourceTree = "<group>"; };
 		77440C63248FDDB100A87934 /* CodeFieldDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodeFieldDelegate.swift; sourceTree = "<group>"; };
 		77440C65248FE70F00A87934 /* LoginOptionsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginOptionsView.swift; sourceTree = "<group>"; };
-		77440C67248FED4D00A87934 /* LoginOptions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginOptions.swift; sourceTree = "<group>"; };
 		77440C6924901BCA00A87934 /* LoginOptionsContainerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginOptionsContainerView.swift; sourceTree = "<group>"; };
 		77440C6C2490245200A87934 /* LoginOptionsContainerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginOptionsContainerDelegate.swift; sourceTree = "<group>"; };
 		77440C6E24902F5D00A87934 /* UIView+roundedCorners.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+roundedCorners.swift"; sourceTree = "<group>"; };
@@ -362,12 +356,10 @@
 		77440BF4248E7A3F00A87934 /* Extension */ = {
 			isa = PBXGroup;
 			children = (
-				77440BF5248E7A7000A87934 /* UIViewController+embeddation.swift */,
 				77440C0E248E824F00A87934 /* UIColor+inits.swift */,
 				77440C32248EB16400A87934 /* UIView+shadow.swift */,
 				77440C6E24902F5D00A87934 /* UIView+roundedCorners.swift */,
 				77440C3B248ED5E700A87934 /* String+index.swift */,
-				77440C5F248FC46600A87934 /* UserDefaults+UIKeys.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -388,7 +380,6 @@
 			children = (
 				77440C15248E94F600A87934 /* UserData.swift */,
 				77440C722490D6F500A87934 /* URLs.swift */,
-				77440C67248FED4D00A87934 /* LoginOptions.swift */,
 				77440C46248F75FD00A87934 /* CountryData.swift */,
 			);
 			path = Base;
@@ -658,10 +649,7 @@
 				77440C1F248EA0FD00A87934 /* CountryCodeRouter.swift in Sources */,
 				77440BCE248E759E00A87934 /* Presentation.swift in Sources */,
 				77440C53248F98C800A87934 /* ConfirmNumberViewModelProtocol.swift in Sources */,
-				77440C60248FC46600A87934 /* UserDefaults+UIKeys.swift in Sources */,
 				77440BC4248E74E800A87934 /* Weaver.swift in Sources */,
-				77440BF6248E7A7000A87934 /* UIViewController+embeddation.swift in Sources */,
-				77440C68248FED4D00A87934 /* LoginOptions.swift in Sources */,
 				77440C57248F995400A87934 /* ConfirmNumberRouterProtocol.swift in Sources */,
 				77440C21248EA14200A87934 /* CountryCodeRouterProtocol.swift in Sources */,
 				77440C5B248F9AA900A87934 /* TopLineView.swift in Sources */,

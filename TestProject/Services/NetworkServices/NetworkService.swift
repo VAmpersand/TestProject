@@ -1,14 +1,6 @@
 import UIKit
 import Alamofire
 
-public struct NASA: Codable {
-    public var copyright: String?
-    
-    enum codingKeys: String, CodingKey {
-        case copyright = "copyright"
-    }
-}
-
 final class NetworkService { }
 
 //MARK: - Get

@@ -4,12 +4,6 @@ final class CountryCodeViewModel {
     var parentRouter: Router!
 
     weak var controller: CountryCodeControllerProtocol?
-
-//    private let dependencies: FirstScreenViewModelDependencyResolver
-//
-//    init(injecting dependencies: FirstScreenViewModelDependencyResolver) {
-//        self.dependencies = dependencies
-//    }
 }
 
 // MARK: - CountryCodeViewModelProtocol

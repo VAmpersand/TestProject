@@ -11,8 +11,6 @@ final class MainScreenScene: BaseScene {
     // weaver: mainScreenController = MainScreenController
     // weaver: mainScreenController.scope = .transient
     
-    
-
     init(injecting dependencies: MainScreenSceneDependencyResolver) {
         let router = dependencies.mainScreenRouter
         let viewModel = dependencies.mainScreenViewModel

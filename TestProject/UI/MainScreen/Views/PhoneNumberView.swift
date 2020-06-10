@@ -71,7 +71,6 @@ private extension PhoneNumberView {
     func setupSelf() {
         addSubviews()
         constraintSubviews()
-
     }
     
     func addSubviews() {
