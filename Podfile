@@ -6,5 +6,7 @@ target 'TestProject' do
 
    pod 'WeaverDI', '~> 0.12.3'
    pod 'SnapKit'
+   pod 'Alamofire', '~> 5.2'
+   pod 'Kingfisher'
 
 end

@@ -28,6 +28,16 @@ extension Constants {
         case p270 = 270
         case p300 = 300
         case p340 = 340
+        case p345 = 345
         case p440 = 440
+    }
+    
+    static func inputFieldOffsets() -> CGFloat{
+        switch IPhone.screen {
+        case .screen4inch, .screen4_7inch: return 25
+        case .screen5_5inch: return 50
+        case .screen5_8inch: return 80
+        case .screen6_1and6_5inch: return 110
+        }
     }
 }

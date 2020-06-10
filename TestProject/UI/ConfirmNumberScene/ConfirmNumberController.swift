@@ -132,7 +132,7 @@ extension ConfirmNumberController {
         containerView.snp.makeConstraints { make in
             make.left.right.equalToSuperview()
             make.bottom.equalToSuperview().inset(-Constants.cgFloat.p30.rawValue)
-            make.height.equalTo(Constants.cgFloat.p340.rawValue)
+            make.height.equalTo(Constants.cgFloat.p345.rawValue)
         }
         
         topLineView.snp.makeConstraints { make in
@@ -144,7 +144,7 @@ extension ConfirmNumberController {
         
         titleLabel.snp.makeConstraints { make in
             make.left.right.equalToSuperview().inset(Constants.cgFloat.p15.rawValue)
-            make.top.equalToSuperview().inset(Constants.cgFloat.p25.rawValue)
+            make.top.equalToSuperview().inset(Constants.cgFloat.p30.rawValue)
         }
         
         descreiptionLabel.snp.makeConstraints { make in

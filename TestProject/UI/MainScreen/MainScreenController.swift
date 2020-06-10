@@ -1,4 +1,5 @@
 import UIKit
+import Kingfisher
 
 public final class MainScreenController: BaseController {
     public var viewModel: MainScreenViewModelProtocol!
@@ -21,6 +22,8 @@ public final class MainScreenController: BaseController {
     private lazy var imageView: UIImageView = {
         let view = UIImageView()
         view.layer.cornerRadius = 10
+        view.layer.masksToBounds = true
+        view.kf.setImage(with: URL(string: URLs.mainScreenImageURL))
         
         return view
     }()
@@ -143,8 +146,9 @@ extension MainScreenController {
         addObservers()
         updateLoginViews()
         updateInputViews()
-        setupUserData(for: User())
         loginOptionsContainerView.delegate = self
+        
+        setupUserData(for: User())
     }
 
     override func addSubviews() {
@@ -216,13 +220,13 @@ extension MainScreenController {
         }
         
         phoneNumberView.snp.makeConstraints { make in
-            make.top.equalTo(descreiptionLabel.snp.bottom).offset(Constants.cgFloat.p80.rawValue)
+            make.top.equalTo(descreiptionLabel.snp.bottom).offset(Constants.inputFieldOffsets())
             make.left.right.equalToSuperview().inset(Constants.cgFloat.p15.rawValue)
             make.height.equalTo(Constants.cgFloat.p40.rawValue)
         }
         
         confirmButton.snp.makeConstraints { make in
-            make.top.equalTo(phoneNumberView.snp.bottom).offset(Constants.cgFloat.p80.rawValue)
+            make.top.equalTo(phoneNumberView.snp.bottom).offset(Constants.inputFieldOffsets())
             make.left.right.equalToSuperview().inset(Constants.cgFloat.p15.rawValue)
             make.height.equalTo(Constants.cgFloat.p50.rawValue)
         }
@@ -256,10 +260,22 @@ extension MainScreenController {
 // MARK: - Action
 private extension MainScreenController {
     @objc func confirmButtonHandler() {
-        guard let phoneBody = phoneNumberView.phoneNumberField.text,
-            let code = phoneNumberView.codeLabel.text else { return }
-        
-        viewModel.presentConfirmNumberScene(with: code + phoneBody)
+        var userData = PostingUserData(id: User().id)
+        if !phoneNumberView.isHidden,
+            !phoneNumberView.phoneNumberField.text!.isEmpty,
+            let phoneBody = phoneNumberView.phoneNumberField.text,
+            let code = phoneNumberView.codeLabel.text {
+            userData.phone = code + phoneBody
+            viewModel.presentConfirmNumberScene(with: code + phoneBody)
+            viewModel.postUserData(userData)
+            
+        } else if !emailField.isHidden,
+            !emailField.text!.isEmpty,
+            let email = emailField.text {
+            userData.email = email
+            viewModel.presentConfirmNumberScene(with: email)
+            viewModel.postUserData(userData)
+        }
     }
     
     @objc func presentCountryCodeScene() {
@@ -328,7 +344,7 @@ private extension MainScreenController {
         let keyboardFrameHeight = keyboardFrame.cgRectValue.height
         
         if phoneNumberView.phoneNumberField.isFirstResponder
-            && emailField.isFirstResponder {
+            || emailField.isFirstResponder {
             scrollView.contentOffset  = CGPoint(x: 0,
                                                 y: keyboardFrameHeight)
         }
@@ -336,7 +352,7 @@ private extension MainScreenController {
     
     @objc func keyboardWillHide() {
         if phoneNumberView.phoneNumberField.isFirstResponder
-            && emailField.isFirstResponder {
+            || emailField.isFirstResponder {
             scrollView.contentOffset = CGPoint(x: 0,
                                                y: -Constants.cgFloat.p40.rawValue)
             
